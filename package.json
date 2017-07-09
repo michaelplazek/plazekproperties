@@ -4,7 +4,7 @@
   "description": "website for Plazek Properties",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
-    "start": "npm-run-all --parallel open:src lint:watch",
+    "start": "npm-run-all --parallel open:src",
     "open:src": "babel-node tools/srcServer.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
@@ -13,8 +13,14 @@
   "author": "Michael Plazek",
   "dependencies": {
     "eslint-import-resolver-webpack": "^0.8.3",
+    "file-system": "^2.2.2",
+    "fs": "^0.0.1-security",
     "grommet": "*",
     "jsdom": "^11.0.0",
+    "json-loader": "^0.5.4",
+    "jsonfile": "^3.0.1",
+    "lodash": "^4.17.4",
+    "lodash.has": "^4.5.2",
     "react": "*",
     "react-dom": "^15.5.4",
     "react-router": "*"
@@ -46,7 +52,7 @@
     "react-addons-test-utils": "15.0.2",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
-    "webpack": "1.13.0",
+    "webpack": "^1.13.0",
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.10.0"
   },
