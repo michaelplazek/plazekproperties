@@ -51,7 +51,11 @@ class PropertySearch extends Component{
 
   getHeader(){
     if(has(this.state.house, 'number') && has(this.state.house, 'street')){
-      return this.state.house.number + " " + this.state.house.street + " " + this.state.house.city + " " + this.state.house.zip;
+      return (
+        <Box direction="row">
+          <Heading tag="h2" justify="center" align="center">{this.state.house.number}&nbsp;{this.state.house.street}&nbsp;{this.state.house.city}&nbsp;{this.state.house.zip}</Heading>
+        </Box>
+      )
     }
   }
 
@@ -68,7 +72,7 @@ class PropertySearch extends Component{
       <Article>
         <Header basis="full" full="horizontal" justify="end" pad="medium">
           <Box justify="start" pad={{horizontal:"large"}}>
-            <Heading tag="h2" align="start">{this.getHeader()}</Heading>
+            {this.getHeader()}
           </Box>
           <Box justify="end" pad="medium" basis="medium" align="end">
             <input id="search" name="search" type="text" size="40" placeholder="Search for apartment" onKeyUp={this.handleEvent} />
