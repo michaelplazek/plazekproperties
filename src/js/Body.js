@@ -44,7 +44,6 @@ class Body extends Component{
           {this.getSlides(house)}
           {this.getFeel(house)}
           {this.getUnits(house)}
-          // TODO: add columns to link to apartments
 
         </Box>);
       return section;
@@ -57,9 +56,10 @@ class Body extends Component{
     if(house.units.length > 1){
       result = house.units.map((unit, index) => (
         <Tile key={index}>
-          <Card thumbnail={unit.images[0]}
+          <Card thumbnail={<Image size="medium" src={unit.images[0]} />}
             heading={this.getUnitHeading(unit)}
             textSize="small"
+            size="small"
             label={this.getRooms(unit)}
             contentPad="medium"
             link={<Anchor path={unit.path} label="View Unit"/>}
@@ -68,7 +68,7 @@ class Body extends Component{
       ));
     }
     return(
-      <Tiles margin={{vertical:"large"}} flush={false} size="small" basis="full" justify="center" align="center">{result}</Tiles>
+      <Box ><Tiles full="horizontal" basis="full" align="center" justify="center" pad={{vertical:"medium"}} flush={false} size="medium">{result}</Tiles></Box>
     );
   }
 
