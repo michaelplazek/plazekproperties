@@ -6,6 +6,7 @@ import Header from 'grommet/components/Header';
 import Article from 'grommet/components/Article';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
+import Headline from 'grommet/components/Headline';
 
 import has from 'lodash.has';
 
@@ -53,15 +54,15 @@ class PropertySearch extends Component{
     if(has(this.state.house, 'number') && has(this.state.house, 'street')){
       return (
         <Box direction="row">
-          <Heading tag="h2" justify="center" align="center">{this.state.house.number}&nbsp;{this.state.house.street}&nbsp;{this.state.house.city}&nbsp;{this.state.house.zip}</Heading>
+          <Headline size="small" margin="none">{this.state.house.number}&nbsp;{this.state.house.street}&nbsp;{this.state.house.city}&nbsp;{this.state.house.zip}</Headline>
         </Box>
-      )
+      );
     }
   }
 
   queryJSON(event){
     json.houses.forEach(house => {
-      if(house.number.includes(event) || house.street.toLowerCase().includes(event) || house.city.toLowerCase().includes(event)){
+      if(house.number.includes(event) || house.street.toLowerCase().includes(event) || house.city.toLowerCase().includes(event) || house.zip.includes(event)){
         this.setHouse(house);
       }
     });

@@ -21,8 +21,8 @@ class Body extends Component{
 
     this.getHouse = this.getHouse.bind(this);
     this.getSlides = this.getSlides.bind(this);
-    this.getFactList = this.getFirstFactList.bind(this);
-    this.getFactList = this.getSecondFactList.bind(this);
+    this.getFirstFactList = this.getFirstFactList.bind(this);
+    this.getSecondFactList = this.getSecondFactList.bind(this);
     this.getFeel = this.getFeel.bind(this);
   }
 
@@ -63,7 +63,7 @@ class Body extends Component{
     let result = house.images.map(image =>
       <Image key={image} src={image} />
     );
-    return <Box pad={{vertical:"large"}} margin={{horizontal:"small"}}><Carousel>{result}</Carousel></Box>;
+    return <Box pad={{vertical:"large"}} margin={{horizontal:"large"}}><Carousel>{result}</Carousel></Box>;
   }
 
   getSecondFactList(house){
