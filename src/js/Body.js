@@ -12,6 +12,10 @@ import ListItem from 'grommet/components/ListItem';
 import Paragraph from 'grommet/components/Paragraph';
 import Carousel from 'grommet/components/Carousel';
 import Columns from "grommet/components/Columns";
+import Tiles from 'grommet/components/Tiles';
+import Tile from 'grommet/components/Tile';
+import Card from 'grommet/components/Card';
+import Anchor from 'grommet/components/Anchor';
 
 import has from 'lodash.has';
 
@@ -39,13 +43,43 @@ class Body extends Component{
 
           {this.getSlides(house)}
           {this.getFeel(house)}
-
+          {this.getUnits(house)}
           // TODO: add columns to link to apartments
 
         </Box>);
       return section;
     }
     return null;
+  }
+
+  getUnits(house){
+    let result = null;
+    if(house.units.length > 1){
+      result = house.units.map((unit, index) => (
+        <Tile key={index}>
+          <Card thumbnail={unit.images[0]}
+            heading={this.getUnitHeading(unit)}
+            textSize="small"
+            label={this.getRooms(unit)}
+            contentPad="medium"
+            link={<Anchor path={unit.path} label="View Unit"/>}
+          />
+        </Tile>
+      ));
+    }
+    return(
+      <Tiles margin={{vertical:"large"}} flush={false} size="small" basis="full" justify="center" align="center">{result}</Tiles>
+    );
+  }
+
+  getRooms(unit){
+    return(unit.beds + "bedrooms");
+  }
+
+  getUnitHeading(unit){
+    return(
+      unit.title
+    );
   }
 
   getFeel(house){

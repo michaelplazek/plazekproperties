@@ -44,7 +44,9 @@ class PropertySearch extends Component{
   getHouse(){
     if(has(this.state.house, 'number') && has(this.state.house, 'street')){
       return(
-        <Body house={this.state.house}/>
+        <Box basis="full">
+          <Body house={this.state.house}/>
+        </Box>
       );
     }
     return null;
@@ -79,9 +81,7 @@ class PropertySearch extends Component{
             <input id="search" name="search" type="text" size="40" placeholder="Search for apartment" onKeyUp={this.handleEvent} />
           </Box>
         </Header>
-        <Box basis="full">
           {this.getHouse()}
-        </Box>
       </Article>
     );
   }
