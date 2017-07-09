@@ -16,6 +16,7 @@ import Tiles from 'grommet/components/Tiles';
 import Tile from 'grommet/components/Tile';
 import Card from 'grommet/components/Card';
 import Anchor from 'grommet/components/Anchor';
+import LayerIcon from 'grommet/components/icons/base/Layer';
 
 import has from 'lodash.has';
 
@@ -62,13 +63,13 @@ class Body extends Component{
             size="small"
             label={this.getRooms(unit)}
             contentPad="medium"
-            link={<Anchor path={unit.path} label="View Unit"/>}
+            link={<Anchor path={unit.path} icon={<LayerIcon />} label="View Unit"/>}
           />
         </Tile>
       ));
     }
     return(
-      <Box ><Tiles full="horizontal" basis="full" align="center" justify="center" pad={{vertical:"medium"}} flush={false} size="medium">{result}</Tiles></Box>
+      <Tiles full="horizontal" basis="full" align="center" justify="center" pad={{vertical:"large"}} fill={true} flush={false} size="medium">{result}</Tiles>
     );
   }
 

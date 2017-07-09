@@ -1,5 +1,6 @@
 {
   "houses": [{
+    "path":"/",
     "number":"442",
     "street":"Orchard Ave",
     "city": "Bellevue, PA",
@@ -58,6 +59,7 @@
     }
   },
     {
+      "path":"/",
       "number":"181",
       "street":"Grant Ave",
       "city": "Bellevue, PA",
