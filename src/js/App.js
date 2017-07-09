@@ -14,7 +14,7 @@ import Contact from './Contact';
 const App = (props) => (
 
   <GrommetApp centered={false}>
-    <Split priority="left" flex="right" fixed={false} separator={true}>
+    <Split priority="left" flex="right" fixed={true} separator={true}>
       <Sidebar colorIndex="neutral-1-t" size="medium">
         {/*<Box justify="center" align="center" margin="medium">*/}
           {/*<LoginForm align="start"/>*/}

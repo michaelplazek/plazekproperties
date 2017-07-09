@@ -6,18 +6,17 @@
     "zip":"15202",
     "images": [
       "http://www.reallynicehouses.com/wp-content/uploads/IMG_1397.jpg",
-      "http://localhost:3000/images/orchard/m1.jpg"
+      "http://jeffmatherphotography.com/dispatches_wp/wp-content/uploads/2012/06/IMG_3960.jpg"
     ],
     "units":"soon",
-    "feel":"Comfortable triplex located on a quiet street in Bellevue. Large backyard.Front/back porches. Both on and off street parking. Smoke free. Large basement with washer & dryer.",
+    "feel":"Comfortable triplex located on a quiet street in Bellevue. Large backyard. Front/back porches. Both on and off street parking. Smoke free. Large basement with washer & dryer.",
     "facts":{
       "type":"triplex",
       "pets":"yes",
       "parking":"off",
       "heat":"central",
       "ac":"central",
-      "washer":"yes",
-      "dryer":"yes"
+      "washer":"yes"
     }
   },
     {
@@ -25,7 +24,10 @@
       "street":"Grant Ave",
       "city": "Bellevue, PA",
       "zip":"15202",
-      "images":"soon",
+      "images": [
+        "http://www.reallynicehouses.com/wp-content/uploads/IMG_1397.jpg",
+        "http://jeffmatherphotography.com/dispatches_wp/wp-content/uploads/2012/06/IMG_3960.jpg"
+      ],
       "units":"soon",
       "feel":"Beautiful duplex located on a quiet street in Bellevue. Large backyard, front porch porches. Both on and off street parking. Smoke free. Equipped with washer & dryer.",
       "facts":{

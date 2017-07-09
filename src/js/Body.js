@@ -7,6 +7,11 @@ import Headline  from 'grommet/components/Headline';
 import Animate from 'grommet/components/Animate';
 import Hero from 'grommet/components/Hero';
 import Heading from 'grommet/components/Heading';
+import List from 'grommet/components/List';
+import ListItem from 'grommet/components/ListItem';
+import Paragraph from 'grommet/components/Paragraph';
+import Carousel from 'grommet/components/Carousel';
+import Columns from "grommet/components/Columns";
 
 import has from 'lodash.has';
 
@@ -15,47 +20,205 @@ class Body extends Component{
     super(props);
 
     this.getHouse = this.getHouse.bind(this);
+    this.getSlides = this.getSlides.bind(this);
+    this.getFactList = this.getFirstFactList.bind(this);
+    this.getFactList = this.getSecondFactList.bind(this);
+    this.getFeel = this.getFeel.bind(this);
   }
 
   getHouse(){
-    if(this.props.house){
+    let house = this.props.house;
+    if(house){
       let section = (
-        <Box basis="full">
-          <Hero
-            background={<Image fit="cover" src={this.props.house.images[0]}/>}
-            backgroundColorIndex='dark'
-          >
-            <Box direction='row'
-                 justify='center'
-                 align='center'>
-              <Box basis='1/2'
-                   align='end'
-                   pad='medium' />
-              <Box basis='1/2'
-                   align='start'
-                   pad='medium'>
-                <Heading margin='none'>
-                  {this.props.house.number + " " + this.props.house.street + " " + this.props.house.city + " " + this.props.house.zip}
-                </Heading>
-              </Box>
-            </Box>
-          </Hero>
+        <Box basis="full" justify="center" direction="column">
+
+          <Box direction="row" basis="full" justify="center" align="center" pad={{horizontal:"medium"}}>
+            {this.getFirstFactList(house)}
+            {this.getSecondFactList(house)}
+          </Box>
+
+          {this.getSlides(house)}
+          {this.getFeel(house)}
+
+          // TODO: add columns to link to apartments
+
         </Box>);
       return section;
     }
     return null;
   }
 
+  getFeel(house){
+    let result = null;
+    if(house.feel){
+      result = (
+        <Box basis="full" justify="center" align="center" pad={{horizontal:"medium"}}>
+          <Paragraph size="large">{house.feel}</Paragraph>
+        </Box>);
+    }
+    return result;
+  }
+
+  getSlides(house){
+    let result = house.images.map(image =>
+      <Image key={image} src={image} />
+    );
+    return <Box pad={{vertical:"large"}} margin={{horizontal:"small"}}><Carousel>{result}</Carousel></Box>;
+  }
+
+  getSecondFactList(house){
+    let facts = (
+      <Box pad={{horizontal:"small"}} align="center">
+        <List>
+          <ListItem justify="center" size="medium">
+            <Label margin="none" size="medium">
+              {this.getHeat(house.facts.heat)}
+            </Label>
+          </ListItem>
+          <ListItem justify="center" size="medium">
+            <Label margin="none" size="medium">
+              {this.getAC(house.facts.ac)}
+            </Label>
+          </ListItem>
+          <ListItem justify="center" size="medium">
+            <Label margin="none" size="medium">
+              {this.getWasher(house.facts.washer)}
+            </Label>
+          </ListItem>
+        </List>
+      </Box>
+    );
+    return facts;
+  }
+
+  getFirstFactList(house){
+    let facts = (
+      <Box pad={{horizontal:"small"}} align="center">
+        <List>
+          <ListItem justify="center" size="medium">
+            <Label margin="none" size="medium">
+              {this.getType(house.facts.type)}
+            </Label>
+          </ListItem>
+          <ListItem justify="center" size="medium">
+            <Label margin="none" size="medium">
+              {this.getPets(house.facts.pets)}
+            </Label>
+          </ListItem>
+          <ListItem justify="center" size="medium">
+            <Label margin="none" size="medium">
+              {this.getParking(house.facts.parking)}
+            </Label>
+          </ListItem>
+        </List>
+      </Box>
+    );
+    return facts;
+  }
+
+  getWasher(washer){
+    if(washer){
+      let result = null;
+      switch (washer){
+        case "yes":
+          result = "Washer/Dryer Included";
+      }
+      return result;
+    }
+  }
+
+  getAC(ac){
+    if(ac){
+      let result = null;
+      switch(ac){
+        case "central":
+          result = "Central A/C";
+          break;
+        case "window":
+          result = "Window A/C Unit";
+          break;
+        case "none":
+          result = "No A/C";
+          break;
+      }
+      return result;
+    }
+  }
+
+  getHeat(heat){
+    if(heat){
+      let result = null;
+      switch(heat){
+        case "central":
+          result = "Central Heat";
+          break;
+        case "electric":
+          result = "Electric Heat";
+          break;
+        case "none":
+          result= "Portable Heat";
+          break;
+      }
+      return result;
+    }
+  }
+
+  getParking(parking){
+    if(parking){
+      let result = null;
+      switch(parking){
+        case "on":
+          result = "On-street parking";
+          break;
+        case "off":
+          result = "Off-street parking";
+          break;
+      }
+      return result;
+    }
+  }
+
+  getPets(pets){
+    if(pets){
+      let result = null;
+      switch(pets){
+        case "yes":
+          result = "Pets allowed for additional fee";
+          break;
+        case "no":
+          result = "No pets allowed";
+          break;
+      }
+      return result;
+    }
+  }
+
+  getType(type){
+    if(type){
+      let result = null;
+      switch(type){
+        case "triplex":
+          result = "Triplex";
+          break;
+        case "duplex":
+          result = "Duplex";
+          break;
+        case "single":
+          result = "Single";
+          break;
+      }
+      return result;
+    }
+  }
+
   render(){
     return(
-      <Box basis="full" justify="center" pad="medium">
-        <Box justify="center" align="center" basis="full">
-          <Animate enter={{"animation": "fade", "duration": 1000, "delay": 1000}}>
+      <Box basis="full" justify="center">
+          <Animate enter={{"animation": "fade", "duration": 500, "delay": 250}}>
             {this.getHouse()}
           </Animate>
-        </Box>
       </Box>
-    )
+    );
   }
 }
 
