@@ -46,7 +46,9 @@ class PropertyList extends Component{
 
   render(){
     return(
-      this.getList()
+      <Box margin="large">
+        {this.getList()}
+      </Box>
     );
   }
 }

@@ -15,7 +15,7 @@ const App = (props) => (
 
   <GrommetApp centered={false}>
     <Split priority="left" flex="right" fixed={true} separator={true}>
-      <Sidebar colorIndex="neutral-1-t" size="medium">
+      <Sidebar colorIndex="neutral-1" size="small">
         {/*<Box justify="center" align="center" margin="medium">*/}
           {/*<LoginForm align="start"/>*/}
         {/*</Box>*/}
