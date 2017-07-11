@@ -37,7 +37,14 @@ class Body extends Component{
       let section = (
         <Box basis="full" justify="center" direction="column">
 
-          <Box direction="row" basis="full" justify="center" align="center" pad={{horizontal:"medium"}}>
+          <Box
+            direction="row"
+            basis="full"
+            justify="center"
+            align="center"
+            pad={{horizontal:"medium"}}
+            margin={{vertical:"medium"}}
+          >
             {this.getFirstFactList(house)}
             {this.getSecondFactList(house)}
           </Box>
@@ -54,13 +61,17 @@ class Body extends Component{
 
   getUnits(house){
     let result = null;
+    let tile = "small";
     if(house.units.length > 1){
+      if(house.units.length <= 2){
+        tile = "medium";
+      }
       result = house.units.map((unit, index) => (
-        <Tile key={index}>
+        <Tile key={index} flex={true}>
           <Card thumbnail={<Image size="medium" src={unit.images[0]} />}
             heading={this.getUnitHeading(unit)}
             textSize="small"
-            size="small"
+            size={tile}
             label={this.getRooms(unit)}
             contentPad="medium"
             link={<Anchor path={unit.path} icon={<LayerIcon />} label="View Unit"/>}
@@ -69,7 +80,19 @@ class Body extends Component{
       ));
     }
     return(
-      <Tiles full="horizontal" basis="full" align="center" justify="center" pad={{vertical:"large"}} fill={true} flush={false} size="medium">{result}</Tiles>
+      <Tiles
+        full="horizontal"
+        basis="full"
+        align="center"
+        justify="center"
+        pad={{vertical:"large"}}
+        fill={true} flush={false}
+        size="medium"
+        colorIndex="light-2"
+        margin={{vertical:"medium"}}
+      >
+        {result}
+      </Tiles>
     );
   }
 
@@ -98,7 +121,7 @@ class Body extends Component{
     let result = house.images.map(image =>
       <Image key={image} src={image} />
     );
-    return <Box pad={{vertical:"large"}} margin={{horizontal:"large"}}><Carousel>{result}</Carousel></Box>;
+    return <Box pad="large" margin={{vertical:"medium"}} colorIndex="light-2"><Carousel>{result}</Carousel></Box>;
   }
 
   getSecondFactList(house){

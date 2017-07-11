@@ -78,5 +78,51 @@
         "washer":"yes",
         "dryer":"yes"
       }
+    },
+    {
+      "path":"/",
+      "number":"65/67",
+      "street":"North Bryant Ave",
+      "city": "Bellevue, PA",
+      "zip":"15202",
+      "images": [
+        "http://www.reallynicehouses.com/wp-content/uploads/IMG_1397.jpg",
+        "http://jeffmatherphotography.com/dispatches_wp/wp-content/uploads/2012/06/IMG_3960.jpg"
+      ],
+      "units":[{
+        "title":"First Floor",
+        "images":[
+          "http://www.reallynicehouses.com/wp-content/uploads/IMG_1397.jpg",
+          "http://jeffmatherphotography.com/dispatches_wp/wp-content/uploads/2012/06/IMG_3960.jpg"
+        ],
+        "beds":"2",
+        "baths":"1",
+        "description":"Large first floor duplex apartment. Two bedrooms. Living room, dining room, equipped kitchen. One bathroom. Hardwood floors. Equipped laundry in basement. Private back yard. Back porch. Garage. Located on nice one way street in Bellevue.",
+        "washer":"yes",
+        "dishwasher":"yes",
+        "path":"/"
+      },
+        {
+          "title":"Second Floor",
+          "images":[
+            "http://www.reallynicehouses.com/wp-content/uploads/IMG_1397.jpg",
+            "http://jeffmatherphotography.com/dispatches_wp/wp-content/uploads/2012/06/IMG_3960.jpg"
+          ],
+          "beds":"2",
+          "baths":"1",
+          "description":"Second floor, 2-bedroom apartment on a quiet, one-way street in Bellevue. Spacious living room / dining room combination with decorative fireplace and hardwood floors. Both bedrooms have plenty of closet space and carpeted floors. Large, equipped, eat-in kitchen with gas range, refrigerator, and plenty of storage space. Large third-floor room for additional storage. Central A/C. Back deck with private back yard. Garage parking in back. Equipped laundry and clean storage in basement. Washer and dryer provided for tenants’ use.",
+          "washer":"yes",
+          "dishwasher":"yes",
+          "path":"/"
+        }],
+        "feel":"Cozy duplex located in the heart of Bellevue. Washer & dryer in basement. Back porches. Private backyard. Fresh paint job. On street parking easy to find.",
+        "facts":{
+        "type":"duplex",
+        "pets":"yes",
+        "parking":"off",
+        "heat":"central",
+        "ac":"central",
+        "washer":"yes"
+      }
     }]
 }
