@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Box from 'grommet/components/Box';
 import Header from 'grommet/components/Header';
 import Split from 'grommet/components/Split';
+import Animate from 'grommet/components/Animate';
 
 import PropertySearch from './PropertySearch';
 import GoogleMapsWrapper from './components/GoogleMapsWrapper';
@@ -94,10 +95,13 @@ class Properties extends Component{
         fixed={true}
         separator={true}
       >
-        <GoogleMapsWrapper
-          height={this.state.height}
-          markers={this.state.markers}
-        />
+        <Animate enter={{"animation": "slide-right", "duration": 300, "delay": 0}}
+                 keep={true}>
+          <GoogleMapsWrapper
+            height={this.state.height}
+            markers={this.state.markers}
+          />
+        </Animate>
         <Box>
           <Header basis="full" full="horizontal" justify="end" pad="small">
             <Box justify="end" pad="small" basis="medium" align="end">
@@ -106,12 +110,12 @@ class Properties extends Component{
               />
             </Box>
           </Header>
-          <Box direction="row" basis="full">
-            <PropertySearch
-              input={this.state.input}
-              house_list={this.state.house_list}
-            />
-          </Box>
+            <Box direction="row" basis="full">
+              <PropertySearch
+                input={this.state.input}
+                house_list={this.state.house_list}
+              />
+            </Box>
         </Box>
       </Split>
     );

@@ -6,8 +6,8 @@ const googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.27&libraries=pla
 
 const GoogleMaps = withGoogleMap(props =>
     <GoogleMap
-      defaultZoom={10}
-      defaultCenter={{ lat: 40.4288728, lng: -80.0977227 }}>
+      defaultZoom={14}
+      defaultCenter={{ lat: 40.4967597, lng: -80.067714 }}>
       {props.markers.map((marker, index) => (
         <Marker
           key={index}

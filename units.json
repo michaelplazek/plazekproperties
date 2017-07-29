@@ -5,6 +5,7 @@
     "street":"Orchard Ave",
     "city": "Bellevue, PA",
     "zip":"15202",
+    "bg":"http://i.imgur.com/f2ka63o.jpg",
     "marker":{
       "position": {
         "lat": "40.4985596",
@@ -14,7 +15,7 @@
       "defaultAnimation": "2"
     },
     "images": [
-      "http://www.reallynicehouses.com/wp-content/uploads/IMG_1397.jpg",
+      "http://i.imgur.com/FASNApg.jpg",
       "http://jeffmatherphotography.com/dispatches_wp/wp-content/uploads/2012/06/IMG_3960.jpg"
     ],
     "units":[{
@@ -73,6 +74,7 @@
       "street":"Grant Ave",
       "city": "Bellevue, PA",
       "zip":"15202",
+      "bg":"http://i.imgur.com/f2ka63o.jpg",
       "marker":{
         "position": {
           "lat": "40.4882993",
@@ -82,7 +84,7 @@
         "defaultAnimation": "2"
       },
       "images": [
-        "http://www.reallynicehouses.com/wp-content/uploads/IMG_1397.jpg",
+        "http://i.imgur.com/dTPlPXq.jpg",
         "http://jeffmatherphotography.com/dispatches_wp/wp-content/uploads/2012/06/IMG_3960.jpg"
       ],
       "price":"4",
@@ -103,6 +105,7 @@
       "street":"North Bryant Ave",
       "city": "Bellevue, PA",
       "zip":"15202",
+      "bg":"http://i.imgur.com/f2ka63o.jpg",
       "marker":{
         "position": {
           "lat": "40.4943579",
@@ -112,7 +115,7 @@
         "defaultAnimation": "2"
       },
       "images": [
-        "http://www.reallynicehouses.com/wp-content/uploads/IMG_1397.jpg",
+        "http://i.imgur.com/yXUE7c3.jpg",
         "http://jeffmatherphotography.com/dispatches_wp/wp-content/uploads/2012/06/IMG_3960.jpg"
       ],
       "units":[{
