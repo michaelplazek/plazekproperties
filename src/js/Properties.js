@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
+import Box from 'grommet/components/Box';
+
 import PropertySearch from './PropertySearch';
+import GoogleMapsWrapper from './components/GoogleMapsWrapper';
 
 class Properties extends Component{
   constructor(props){
@@ -9,7 +12,10 @@ class Properties extends Component{
 
   render(){
     return(
+      <Box>
+        <GoogleMapsWrapper/>
         <PropertySearch />
+      </Box>
     );
   }
 }

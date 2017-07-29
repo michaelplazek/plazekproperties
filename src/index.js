@@ -7,7 +7,6 @@ import App from './js/App'
 import Contact from './js/Contact';
 import About from './js/About';
 import Properties from './js/Properties';
-import AddUnit from './js/components/AddUnit';
 
 import 'grommet/grommet-hpe.min.css';
 
