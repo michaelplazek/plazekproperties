@@ -50,9 +50,6 @@ class Properties extends Component{
     this.setState({input:event});
 
     this.queryJSON(event);
-
-    let obj = {houses:this.state.house_list};
-    this.setState({markers: this.setMarkers(obj)});
   }
 
   queryJSON(event){
@@ -68,6 +65,8 @@ class Properties extends Component{
       }
     });
     this.setState({house_list:result});
+    let obj = {houses:result};
+    this.setState({markers: this.setMarkers(obj)});
   }
 
   setMarkers(json){
