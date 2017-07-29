@@ -23,11 +23,7 @@ class PropertySearch extends Component{
   }
 
   render(){
-    return(
-      <Article>
-          {this.getHouses()}
-      </Article>
-    );
+    return this.getHouses();
   }
 }
 

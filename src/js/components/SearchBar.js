@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import SearchIcon from 'grommet/components/icons/base/Search';
+
 class SearchBar extends Component{
   constructor(props){
     super(props);
@@ -8,7 +10,7 @@ class SearchBar extends Component{
 
   render(){
     return(
-      <input id="search" name="search" type="text" size="40" onKeyUp={this.props.handleEvent} />
+      <input placeholder="Search for apartment" id="search" name="search" type="text" size="40" onKeyUp={this.props.handleEvent} />
     );
   }
 }

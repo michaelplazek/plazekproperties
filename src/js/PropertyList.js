@@ -38,7 +38,7 @@ class PropertyList extends Component{
 
   getList(){
     return(
-      <Columns maxCount={5} size="small">
+      <Columns maxCount={3} size="small">
         {this.getCards()}
       </Columns>
     );
@@ -46,7 +46,7 @@ class PropertyList extends Component{
 
   render(){
     return(
-      <Box margin="large">
+      <Box margin="medium">
         {this.getList()}
       </Box>
     );

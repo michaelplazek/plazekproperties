@@ -16,14 +16,30 @@ class Properties extends Component{
     this.state = {
       input: {},
       house: {},
-      house_list: []
+      house_list: [],
+      height: window.innerHeight*0.8
     };
 
     this.handleSearch = this.handleSearch.bind(this);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentWillMount(){
     this.setState({house_list:json.houses});
+  }
+
+  // get size of window for map dimensions
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ height: window.innerHeight*0.8 });
   }
 
   handleSearch(){
@@ -31,7 +47,6 @@ class Properties extends Component{
     this.setState({input:event});
 
     this.queryJSON(event);
-    console.log(event);
   }
 
   queryJSON(event){
@@ -52,18 +67,22 @@ class Properties extends Component{
   render(){
     return(
       <Box>
-        <Header basis="full" full="horizontal" justify="end" pad="medium">
-          <Box justify="end" pad="medium" basis="medium" align="end">
+        <Header basis="full" full="horizontal" justify="end" pad="small">
+          <Box justify="end" pad="small" basis="medium" align="end">
             <SearchBar
               handleEvent={this.handleSearch}
             />
           </Box>
         </Header>
-        <GoogleMapsWrapper/>
-        <PropertySearch
-          input={this.state.input}
-          house_list={this.state.house_list}
-        />
+        <Box direction="row" basis="full" justify="between">
+          <PropertySearch
+            input={this.state.input}
+            house_list={this.state.house_list}
+          />
+          <GoogleMapsWrapper
+            height={this.state.height}
+          />
+        </Box>
       </Box>
     );
   }

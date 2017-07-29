@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 
 const googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.27&libraries=places,geometry&key=AIzaSyCmatde5HvRYF3_ZaGuPYEh3iHTaSSe-Us";
@@ -23,13 +24,17 @@ export default class GoogleMapsWrapper extends Component{
     return(
       <GoogleMaps
         containerElement={
-          <div style={{ height: `100%` }} />
+          <div style={{ height: this.props.height, width: '55%' }} />
         }
         mapElement={
-          <div style={{ height: `400px` }} />
+          <div style={{ height: this.props.height, width: '95%'}} />
         }
     />
     );
   }
-};
+}
+
+GoogleMapsWrapper.PropTypes = {
+  height: PropTypes.number
+}
 
