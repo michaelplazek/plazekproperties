@@ -18,14 +18,19 @@ class PropertySearch extends Component{
     super(props);
 
     this.state = {
-      input:{},
-      house:{}
+      input: {},
+      house: {},
+      house_list: []
     };
 
     this.handleEvent = this.handleEvent.bind(this);
     this.setHouse = this.setHouse.bind(this);
     this.getHouse = this.getHouse.bind(this);
     this.queryJSON = this.queryJSON.bind(this);
+  }
+
+  componentWillMount(){
+    this.setState({house_list:json.houses});
   }
 
   handleEvent(){
@@ -43,18 +48,19 @@ class PropertySearch extends Component{
   }
 
   getHouse(){
-    if(has(this.state.house, 'number') && has(this.state.house, 'street')){
+    // if(has(this.state.house, 'number') && has(this.state.house, 'street')){
       return(
         <Box basis="full">
-          <Body house={this.state.house}/>
+          <PropertyList houses={this.state.house_list} />
+          {/*<Body house={this.state.house}/>*/}
         </Box>
       );
-    }
-    return(
-      <Box basis="full">
-        <PropertyList houses={json.houses}/>
-      </Box>
-    );
+    // }
+    // return(
+    //   <Box basis="full">
+    //     <PropertyList houses={this.state.house_list}/>
+    //   </Box>
+    // );
   }
 
   getHeader(){
@@ -68,11 +74,19 @@ class PropertySearch extends Component{
   }
 
   queryJSON(event){
+    let result = [];
     json.houses.forEach(house => {
       if(event && house.number.includes(event) || house.street.toLowerCase().includes(event) || house.city.toLowerCase().includes(event) || house.zip.includes(event)){
-        this.setHouse(house);
+        if(this.state.house_list && this.state.house_list.length > 0){
+          result.push(house);
+        }
+        else if(this.state.house_list && !this.state.house_list.includes(house)) {
+          result.push(house);
+        }
       }
     });
+      // this.setHouse(house);
+    this.setState({house_list:result});
   }
 
   render(){

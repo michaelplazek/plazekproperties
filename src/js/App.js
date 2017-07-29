@@ -24,6 +24,7 @@ const App = (props) => (
           <Anchor path="/properties" label="Properties"/>
           <Anchor path="/contact" label="Contact"/>
           <Anchor path="/about" label="About Us"/>
+          <Anchor path="/addUnit" label="Add Unit" />
         </Menu>
       </Sidebar>
 
