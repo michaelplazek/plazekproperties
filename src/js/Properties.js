@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Box from 'grommet/components/Box';
 import Header from 'grommet/components/Header';
+import Split from 'grommet/components/Split';
 
 import PropertySearch from './PropertySearch';
 import GoogleMapsWrapper from './components/GoogleMapsWrapper';
@@ -17,7 +18,8 @@ class Properties extends Component{
       input: {},
       house: {},
       house_list: [],
-      height: window.innerHeight*0.8
+      height: window.innerHeight,
+      markers: this.setMarkers(json)
     };
 
     this.handleSearch = this.handleSearch.bind(this);
@@ -26,6 +28,7 @@ class Properties extends Component{
 
   componentWillMount(){
     this.setState({house_list:json.houses});
+    this.setState({markers:this.setMarkers(json)});
   }
 
   // get size of window for map dimensions
@@ -39,7 +42,7 @@ class Properties extends Component{
   }
 
   updateWindowDimensions() {
-    this.setState({ height: window.innerHeight*0.8 });
+    this.setState({ height: window.innerHeight });
   }
 
   handleSearch(){
@@ -47,6 +50,9 @@ class Properties extends Component{
     this.setState({input:event});
 
     this.queryJSON(event);
+
+    let obj = {houses:this.state.house_list};
+    this.setState({markers: this.setMarkers(obj)});
   }
 
   queryJSON(event){
@@ -64,26 +70,51 @@ class Properties extends Component{
     this.setState({house_list:result});
   }
 
+  setMarkers(json){
+    let result = null;
+    if(json){
+      result = (
+        json.houses.map(house => {
+        return house.marker;
+      }));
+    }
+
+    result.forEach(marker => {
+      marker.position.lat = parseFloat(marker.position.lat);
+      marker.position.lng = parseFloat(marker.position.lng);
+      marker.defaultAnimation = parseFloat(marker.defaultAnimation);
+    });
+
+    return result;
+  }
+
   render(){
+
     return(
-      <Box>
-        <Header basis="full" full="horizontal" justify="end" pad="small">
-          <Box justify="end" pad="small" basis="medium" align="end">
-            <SearchBar
-              handleEvent={this.handleSearch}
+      <Split
+        fixed={true}
+        separator={true}
+      >
+        <GoogleMapsWrapper
+          height={this.state.height}
+          markers={this.state.markers}
+        />
+        <Box>
+          <Header basis="full" full="horizontal" justify="end" pad="small">
+            <Box justify="end" pad="small" basis="medium" align="end">
+              <SearchBar
+                handleEvent={this.handleSearch}
+              />
+            </Box>
+          </Header>
+          <Box direction="row" basis="full">
+            <PropertySearch
+              input={this.state.input}
+              house_list={this.state.house_list}
             />
           </Box>
-        </Header>
-        <Box direction="row" basis="full" justify="between">
-          <PropertySearch
-            input={this.state.input}
-            house_list={this.state.house_list}
-          />
-          <GoogleMapsWrapper
-            height={this.state.height}
-          />
         </Box>
-      </Box>
+      </Split>
     );
   }
 }

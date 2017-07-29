@@ -7,34 +7,38 @@ const googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.27&libraries=pla
 const GoogleMaps = withGoogleMap(props =>
     <GoogleMap
       defaultZoom={10}
-      defaultCenter={{ lat: 40.4288728, lng: -80.0977227 }}
-    />
+      defaultCenter={{ lat: 40.4288728, lng: -80.0977227 }}>
+      {props.markers.map((marker, index) => (
+        <Marker
+          key={index}
+          {...marker}
+        />
+      ))}
+    </GoogleMap>
 );
 
 export default class GoogleMapsWrapper extends Component{
   constructor(props){
     super(props);
-
-    this.state = {
-      markers: []
-    };
   }
 
   render(){
     return(
       <GoogleMaps
         containerElement={
-          <div style={{ height: this.props.height, width: '55%' }} />
+          <div style={{ height: this.props.height, width: '100%' }} />
         }
         mapElement={
-          <div style={{ height: this.props.height, width: '95%'}} />
+          <div style={{ height: this.props.height, width: '100%'}} />
         }
+        markers={this.props.markers}
     />
     );
   }
 }
 
 GoogleMapsWrapper.PropTypes = {
-  height: PropTypes.number
-}
+  height: PropTypes.number,
+  markers: PropTypes.array
+};
 
