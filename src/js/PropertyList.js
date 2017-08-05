@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Link from 'react-router';
 
 import Box from 'grommet/components/Box';
 import Card from 'grommet/components/Card';
@@ -10,6 +11,7 @@ import ListItem from 'grommet/components/ListItem';
 import Paragraph from 'grommet/components/Paragraph';
 
 let sign = require('emoji-heavy-dollar-sign');
+let storage = window.sessionStorage;
 
 class PropertyList extends Component{
   constructor(props){
@@ -26,7 +28,9 @@ class PropertyList extends Component{
           thumbnail={<Image size="large" src={house.images[0]} />}
           label={this.getAddress(house)}
           size="medium"
-          link={<Anchor path={house.path} icon={<LayerIcon />} label="View Building"/>}
+          link={<Anchor path='/building' icon={<LayerIcon />} label="View Building"
+            onClick={storage.setItem('house',JSON.stringify(house))}
+          />}
         />
       </ListItem>
     ));

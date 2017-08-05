@@ -18,7 +18,7 @@ import Card from 'grommet/components/Card';
 import Anchor from 'grommet/components/Anchor';
 import LayerIcon from 'grommet/components/icons/base/Layer';
 
-import has from 'lodash.has';
+let storage = window.sessionStorage;
 
 class Body extends Component{
   constructor(props){
@@ -32,7 +32,7 @@ class Body extends Component{
   }
 
   getHouse(){
-    let house = this.props.house;
+    let house = JSON.parse(storage.getItem('house'));
     if(house){
       let section = (
         <Box basis="full" justify="center" direction="column">

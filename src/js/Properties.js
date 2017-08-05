@@ -9,7 +9,7 @@ import PropertySearch from './PropertySearch';
 import GoogleMapsWrapper from './components/GoogleMapsWrapper';
 import SearchBar from './components/SearchBar';
 
-const json = require('../../units.json');
+const json = require('./../../units.json');
 
 class Properties extends Component{
   constructor(props){
