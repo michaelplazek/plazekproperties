@@ -79,11 +79,11 @@ class Body extends Component{
           </Box>
 
           <Box
-            full="horizontal"
             margin="large"
           >
             <Columns
               maxCount={2}
+              responsive={true}
               justify="center"
             >
               {this.getFirstFactList(house)}
