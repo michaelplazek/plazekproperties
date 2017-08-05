@@ -10,7 +10,6 @@ import List from 'grommet/components/List';
 import ListItem from 'grommet/components/ListItem';
 import Paragraph from 'grommet/components/Paragraph';
 
-let sign = require('emoji-heavy-dollar-sign');
 let storage = window.sessionStorage;
 
 class PropertyList extends Component{
@@ -53,26 +52,26 @@ class PropertyList extends Component{
 
   getStars(price){
     if(price === "1"){
-      return sign;
+      return "$";
     }
     else if(price === "2"){
       return(
-        sign + sign
+        "$$"
       );
     }
     else if(price === "3"){
       return(
-        sign + sign + sign
+        "$$$"
       );
     }
     else if(price === "4"){
       return(
-        sign + sign + sign + sign
+        "$$$$"
       );
     }
     else if(price === "5"){
       return(
-        sign + sign + sign + sign + sign
+        "$$$$$"
       );
     }
     else { return null;}
