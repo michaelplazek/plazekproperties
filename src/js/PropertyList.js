@@ -29,7 +29,7 @@ class PropertyList extends Component{
           label={this.getAddress(house)}
           size="medium"
           link={<Anchor path='/building' icon={<LayerIcon />} label="View Building"
-            onClick={storage.setItem('house',JSON.stringify(house))}
+            onClick={() => {storage.setItem('house',JSON.stringify(house))}}
           />}
         />
       </ListItem>

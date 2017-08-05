@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Box  from 'grommet/components/Box';
+import Button from 'grommet/components/Button';
 import Image from 'grommet/components/Image';
 import Label from 'grommet/components/Label';
 import Headline  from 'grommet/components/Headline';
@@ -24,6 +25,11 @@ class Body extends Component{
   constructor(props){
     super(props);
 
+    this.state = {
+      toggle: false
+    };
+
+    this.setToggle = this.setToggle.bind(this);
     this.getHouse = this.getHouse.bind(this);
     this.getSlides = this.getSlides.bind(this);
     this.getFirstFactList = this.getFirstFactList.bind(this);
@@ -31,22 +37,58 @@ class Body extends Component{
     this.getFeel = this.getFeel.bind(this);
   }
 
+  componentWillMount(){
+    this.setState({toggle:false});
+  }
+
+  componentWillReceiveProps(){
+    this.setState({toggle:false});
+  }
+
   getHouse(){
     let house = JSON.parse(storage.getItem('house'));
     if(house){
       let section = (
+
         <Box basis="full" justify="center" direction="column">
 
           <Box
+            full="horizontal"
+            size={{height:'large'}}
+            texture={house.bg}
+            align="end"
+            justify="between"
             direction="row"
-            basis="full"
-            justify="center"
-            align="center"
-            pad={{horizontal:"medium"}}
-            margin={{vertical:"medium"}}
           >
-            {this.getFirstFactList(house)}
-            {this.getSecondFactList(house)}
+            <Button
+              primary={true}
+              box={true}
+              label="View Photos"
+              type="button"
+              plain={false}
+              onClick={this.setToggle}
+              margin="small"
+            />
+            <Box margin={{horizontal:"medium", vertical:"small"}}>
+              <Heading
+                className="building-header"
+                align="end"
+              >
+              {house.number} {house.street}</Heading>
+            </Box>
+          </Box>
+
+          <Box
+            full="horizontal"
+            margin="large"
+          >
+            <Columns
+              maxCount={2}
+              justify="center"
+            >
+              {this.getFirstFactList(house)}
+              {this.getSecondFactList(house)}
+            </Columns>
           </Box>
 
           {this.getSlides(house)}
@@ -57,6 +99,15 @@ class Body extends Component{
       return section;
     }
     return null;
+  }
+
+  setToggle(){
+    if(this.state.toggle){
+      this.setState({toggle:false})
+    }
+    else{
+      this.setState({toggle:true})
+    }
   }
 
   getUnits(house){
@@ -89,7 +140,7 @@ class Body extends Component{
         fill={true} flush={false}
         size="medium"
         colorIndex="light-2"
-        margin={{vertical:"medium"}}
+        margin={{vertical:"large"}}
       >
         {result}
       </Tiles>
@@ -121,7 +172,22 @@ class Body extends Component{
     let result = house.images.map(image =>
       <Image key={image} src={image} />
     );
-    return <Box pad="large" margin={{vertical:"medium"}} colorIndex="light-2"><Carousel>{result}</Carousel></Box>;
+    if(this.state.toggle){
+      return (
+        <Animate
+          visible={this.state.toggle}
+          enter = {{"animation": "fade", "duration": 1000, "delay": 250}}
+          leave = {{"animation": "fade", "duration": 1000, "delay": 250}}
+        >
+          <Box pad="small" margin={{vertical:"small", horizontal:"large"}} colorIndex="light-2">
+            <Carousel>{result}</Carousel>
+          </Box>;
+        </Animate>
+      )
+    }
+    else{
+      return null;
+    }
   }
 
   getSecondFactList(house){
@@ -225,10 +291,10 @@ class Body extends Component{
     if(parking){
       let result = null;
       switch(parking){
-        case "on":
+        case "on-street":
           result = "On-street parking";
           break;
-        case "off":
+        case "off-street":
           result = "Off-street parking";
           break;
       }

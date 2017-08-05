@@ -10,6 +10,7 @@ import Properties from './js/Properties';
 import Building from './js/Building';
 
 import 'grommet/grommet-hpe.min.css';
+import './style.css';
 
 let content = document.getElementById('content');
 ReactDOM.render(
