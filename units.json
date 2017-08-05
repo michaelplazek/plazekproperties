@@ -1,12 +1,21 @@
 {
   "houses": [{
-    "path":"/",
+    "path":"/building",
     "number":"442",
     "street":"Orchard Ave",
     "city": "Bellevue, PA",
     "zip":"15202",
+    "bg":"http://i.imgur.com/f2ka63o.jpg",
+    "marker":{
+      "position": {
+        "lat": "40.4985596",
+        "lng": "-80.053859"
+      },
+      "key": "442 Orchard Ave",
+      "defaultAnimation": "2"
+    },
     "images": [
-      "http://www.reallynicehouses.com/wp-content/uploads/IMG_1397.jpg",
+      "http://i.imgur.com/FASNApg.jpg",
       "http://jeffmatherphotography.com/dispatches_wp/wp-content/uploads/2012/06/IMG_3960.jpg"
     ],
     "units":[{
@@ -48,11 +57,12 @@
       "dishwasher":"yes",
       "path":"/"
     }],
+    "price":"3",
     "feel":"Comfortable triplex located on a quiet street in Bellevue. Large backyard. Front/back porches. Both on and off street parking. Smoke free. Large basement with washer & dryer.",
     "facts":{
       "type":"triplex",
       "pets":"yes",
-      "parking":"off",
+      "parking":"off-street",
       "heat":"central",
       "ac":"central",
       "washer":"yes"
@@ -64,15 +74,25 @@
       "street":"Grant Ave",
       "city": "Bellevue, PA",
       "zip":"15202",
+      "bg":"http://i.imgur.com/f2ka63o.jpg",
+      "marker":{
+        "position": {
+          "lat": "40.4882993",
+          "lng": "-80.0550194"
+        },
+        "key": "181 Grant Ave",
+        "defaultAnimation": "2"
+      },
       "images": [
-        "http://www.reallynicehouses.com/wp-content/uploads/IMG_1397.jpg",
+        "http://i.imgur.com/dTPlPXq.jpg",
         "http://jeffmatherphotography.com/dispatches_wp/wp-content/uploads/2012/06/IMG_3960.jpg"
       ],
+      "price":"4",
       "feel":"Beautiful duplex located on a quiet street in Bellevue. Large backyard, front porch porches. Both on and off street parking. Smoke free. Equipped with washer & dryer.",
       "facts":{
         "type":"duplex",
         "pets":"yes",
-        "parking":"off",
+        "parking":"off-street",
         "heat":"central",
         "ac":"central",
         "washer":"yes",
@@ -85,8 +105,17 @@
       "street":"North Bryant Ave",
       "city": "Bellevue, PA",
       "zip":"15202",
+      "bg":"http://i.imgur.com/f2ka63o.jpg",
+      "marker":{
+        "position": {
+          "lat": "40.4943579",
+          "lng": "-80.0512726"
+        },
+        "key": "65 North Bryant Ave",
+        "defaultAnimation": "2"
+      },
       "images": [
-        "http://www.reallynicehouses.com/wp-content/uploads/IMG_1397.jpg",
+        "http://i.imgur.com/yXUE7c3.jpg",
         "http://jeffmatherphotography.com/dispatches_wp/wp-content/uploads/2012/06/IMG_3960.jpg"
       ],
       "units":[{
@@ -115,14 +144,15 @@
           "dishwasher":"yes",
           "path":"/"
         }],
+        "price":"2",
         "feel":"Cozy duplex located in the heart of Bellevue. Washer & dryer in basement. Back porches. Private backyard. Fresh paint job. On street parking easy to find.",
         "facts":{
-        "type":"duplex",
-        "pets":"yes",
-        "parking":"off",
-        "heat":"central",
-        "ac":"central",
-        "washer":"yes"
+          "type":"duplex",
+          "pets":"yes",
+          "parking":"off-street",
+          "heat":"central",
+          "ac":"central",
+          "washer":"yes"
       }
     }]
 }

@@ -7,9 +7,10 @@ import App from './js/App'
 import Contact from './js/Contact';
 import About from './js/About';
 import Properties from './js/Properties';
-import AddUnit from './js/components/AddUnit';
+import Building from './js/Building';
 
 import 'grommet/grommet-hpe.min.css';
+import './style.css';
 
 let content = document.getElementById('content');
 ReactDOM.render(
@@ -19,6 +20,7 @@ ReactDOM.render(
       <Route path='/contact' component={Contact}/>
       <Route path="/about" component={About} />
       <Route path="/properties" component={Properties} />
+      <Route path="/building" component={Building} />
     </Route>
   </Router>
   , content);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Box  from 'grommet/components/Box';
+import Button from 'grommet/components/Button';
 import Image from 'grommet/components/Image';
 import Label from 'grommet/components/Label';
 import Headline  from 'grommet/components/Headline';
@@ -18,12 +19,17 @@ import Card from 'grommet/components/Card';
 import Anchor from 'grommet/components/Anchor';
 import LayerIcon from 'grommet/components/icons/base/Layer';
 
-import has from 'lodash.has';
+let storage = window.sessionStorage;
 
 class Body extends Component{
   constructor(props){
     super(props);
 
+    this.state = {
+      toggle: false
+    };
+
+    this.setToggle = this.setToggle.bind(this);
     this.getHouse = this.getHouse.bind(this);
     this.getSlides = this.getSlides.bind(this);
     this.getFirstFactList = this.getFirstFactList.bind(this);
@@ -31,22 +37,58 @@ class Body extends Component{
     this.getFeel = this.getFeel.bind(this);
   }
 
+  componentWillMount(){
+    this.setState({toggle:false});
+  }
+
+  componentWillReceiveProps(){
+    this.setState({toggle:false});
+  }
+
   getHouse(){
-    let house = this.props.house;
+    let house = JSON.parse(storage.getItem('house'));
     if(house){
       let section = (
+
         <Box basis="full" justify="center" direction="column">
 
           <Box
+            full="horizontal"
+            size={{height:'large'}}
+            texture={house.bg}
+            align="end"
+            justify="between"
             direction="row"
-            basis="full"
-            justify="center"
-            align="center"
-            pad={{horizontal:"medium"}}
-            margin={{vertical:"medium"}}
           >
-            {this.getFirstFactList(house)}
-            {this.getSecondFactList(house)}
+            <Button
+              primary={true}
+              box={true}
+              label="View Photos"
+              type="button"
+              plain={false}
+              onClick={this.setToggle}
+              margin="small"
+            />
+            <Box margin={{horizontal:"medium", vertical:"small"}}>
+              <Heading
+                className="building-header"
+                align="end"
+              >
+              {house.number} {house.street}</Heading>
+            </Box>
+          </Box>
+
+          <Box
+            margin="large"
+          >
+            <Columns
+              maxCount={2}
+              responsive={true}
+              justify="center"
+            >
+              {this.getFirstFactList(house)}
+              {this.getSecondFactList(house)}
+            </Columns>
           </Box>
 
           {this.getSlides(house)}
@@ -59,6 +101,15 @@ class Body extends Component{
     return null;
   }
 
+  setToggle(){
+    if(this.state.toggle){
+      this.setState({toggle:false})
+    }
+    else{
+      this.setState({toggle:true})
+    }
+  }
+
   getUnits(house){
     let result = null;
     let tile = "small";
@@ -69,12 +120,12 @@ class Body extends Component{
       result = house.units.map((unit, index) => (
         <Tile key={index} flex={true}>
           <Card thumbnail={<Image size="medium" src={unit.images[0]} />}
-            heading={this.getUnitHeading(unit)}
-            textSize="small"
-            size={tile}
-            label={this.getRooms(unit)}
-            contentPad="medium"
-            link={<Anchor path={unit.path} icon={<LayerIcon />} label="View Unit"/>}
+                heading={this.getUnitHeading(unit)}
+                textSize="small"
+                size={tile}
+                label={this.getRooms(unit)}
+                contentPad="medium"
+                link={<Anchor path={unit.path} icon={<LayerIcon />} label="View Unit"/>}
           />
         </Tile>
       ));
@@ -89,7 +140,7 @@ class Body extends Component{
         fill={true} flush={false}
         size="medium"
         colorIndex="light-2"
-        margin={{vertical:"medium"}}
+        margin={{vertical:"large"}}
       >
         {result}
       </Tiles>
@@ -121,7 +172,22 @@ class Body extends Component{
     let result = house.images.map(image =>
       <Image key={image} src={image} />
     );
-    return <Box pad="large" margin={{vertical:"medium"}} colorIndex="light-2"><Carousel>{result}</Carousel></Box>;
+    if(this.state.toggle){
+      return (
+        <Animate
+          visible={this.state.toggle}
+          enter = {{"animation": "fade", "duration": 1000, "delay": 250}}
+          leave = {{"animation": "fade", "duration": 1000, "delay": 250}}
+        >
+          <Box pad="small" margin={{vertical:"small", horizontal:"large"}} colorIndex="light-2">
+            <Carousel>{result}</Carousel>
+          </Box>;
+        </Animate>
+      )
+    }
+    else{
+      return null;
+    }
   }
 
   getSecondFactList(house){
@@ -225,10 +291,10 @@ class Body extends Component{
     if(parking){
       let result = null;
       switch(parking){
-        case "on":
+        case "on-street":
           result = "On-street parking";
           break;
-        case "off":
+        case "off-street":
           result = "Off-street parking";
           break;
       }
@@ -272,9 +338,9 @@ class Body extends Component{
   render(){
     return(
       <Box basis="full" justify="center">
-          <Animate enter={{"animation": "fade", "duration": 500, "delay": 250}}>
-            {this.getHouse()}
-          </Animate>
+        <Animate enter={{"animation": "fade", "duration": 500, "delay": 250}}>
+          {this.getHouse()}
+        </Animate>
       </Box>
     );
   }

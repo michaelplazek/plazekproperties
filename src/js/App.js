@@ -7,6 +7,7 @@ import Box  from 'grommet/components/Box';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 import LoginForm from 'grommet/components/LoginForm';
+import Link from 'react-router';
 
 import Home from './Home';
 import Contact from './Contact';
@@ -21,10 +22,9 @@ const App = (props) => (
         {/*</Box>*/}
         <Menu size="large" justify="center" align="center" basis="full" pad={{vertical:"large"}}>
           <Anchor path="/" label="Home"/>
-          <Anchor path="/properties" label="Properties"/>
+          <Anchor path='/properties' label="Properties"/>
           <Anchor path="/contact" label="Contact"/>
           <Anchor path="/about" label="About Us"/>
-          <Anchor path="/addUnit" label="Add Unit" />
         </Menu>
       </Sidebar>
 

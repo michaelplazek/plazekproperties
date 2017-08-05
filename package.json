@@ -1,6 +1,6 @@
 {
   "name": "plazekproperties",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "website for Plazek Properties",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
@@ -23,6 +23,7 @@
     "lodash.has": "^4.5.2",
     "react": "*",
     "react-dom": "^15.5.4",
+    "react-google-maps": "^7.2.0",
     "react-router": "*"
   },
   "devDependencies": {

@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+import SearchIcon from 'grommet/components/icons/base/Search';
 
 class SearchBar extends Component{
   constructor(props){
     super(props);
-
-    this.state = {input:{}};
-
-    this.handleEvent = this.handleEvent.bind(this);
-  }
-
-  handleEvent(){
-    let event = document.getElementById('search').value;
-    this.setState({input:event});
-    console.log(event);
   }
 
   render(){
     return(
-      <input id="search" name="search" type="text" size="40" onKeyUp={this.handleEvent} />
+      <input placeholder="Search for apartment" id="search" name="search" type="text" size="40" onKeyUp={this.props.handleEvent} />
     );
   }
 }
+
+SearchBar.PropTypes = {
+  handleEvent: PropTypes.func.isRequired
+};
 
 export default SearchBar;
