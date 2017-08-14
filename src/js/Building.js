@@ -183,7 +183,7 @@ class Body extends Component{
             <Carousel>{result}</Carousel>
           </Box>;
         </Animate>
-      )
+      );
     }
     else{
       return null;
