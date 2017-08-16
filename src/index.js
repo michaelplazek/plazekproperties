@@ -8,6 +8,7 @@ import Contact from './js/Contact';
 import About from './js/About';
 import Properties from './js/Properties';
 import Building from './js/Building';
+import Unit from './js/Unit';
 
 import 'grommet/grommet-hpinc.min.css';
 import './style.css';
@@ -21,6 +22,7 @@ ReactDOM.render(
       <Route path="/about" component={About} />
       <Route path="/properties" component={Properties} />
       <Route path="/building" component={Building} />
+      <Route path="/unit" component={Unit} />
     </Route>
   </Router>
   , content);

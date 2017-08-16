@@ -103,10 +103,10 @@ class Body extends Component{
 
   setToggle(){
     if(this.state.toggle){
-      this.setState({toggle:false})
+      this.setState({toggle:false});
     }
     else{
-      this.setState({toggle:true})
+      this.setState({toggle:true});
     }
   }
 
@@ -125,7 +125,9 @@ class Body extends Component{
                 size={tile}
                 label={this.getRooms(unit)}
                 contentPad="medium"
-                link={<Anchor path={unit.path} icon={<LayerIcon />} label="View Unit"/>}
+                link={<Anchor path='/unit' icon={<LayerIcon />} label="View Unit"
+                  onClick={() => {storage.setItem('unit',JSON.stringify(unit))}}
+                />}
           />
         </Tile>
       ));
