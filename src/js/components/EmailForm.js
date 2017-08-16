@@ -12,6 +12,8 @@ class EmailForm extends Component{
     super(props);
   }
 
+  //TODO: add methods to validate form and send email
+
   render(){
     return (
       <Form>

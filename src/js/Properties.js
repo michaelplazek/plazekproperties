@@ -63,7 +63,7 @@ class Properties extends Component{
         else if(this.state.house_list && !this.state.house_list.includes(house)) {
           result.push(house);
         }
-      }n
+      }
     });
     this.setState({house_list:result});
     let obj = {houses:result};

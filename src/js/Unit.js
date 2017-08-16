@@ -28,8 +28,6 @@ let storage = window.sessionStorage;
 export class UnitBase extends Component{
   constructor(props){
     super(props);
-
-
   }
 
   getUnit(){
@@ -49,7 +47,6 @@ export class UnitBase extends Component{
 
             <Box
               align="start"
-              full="vertical"
               pad="small">
               <Button
                 label="Back"
@@ -58,17 +55,26 @@ export class UnitBase extends Component{
                 path="/building" />
             </Box>
 
-            <Button
-              justify="start"
-              align="start"
-              primary={true}
-              box={true}
-              onClick={this.setToggle}
-              label="View Photos"
-              type="button"
-              plain={false}
-              margin="small"
-            />
+            <Box
+              justify="between"
+              full="horizontal"
+              align="end"
+              direction="row">
+              <Button
+
+                primary={true}
+                box={true}
+                onClick={this.setToggle}
+                label="View Photos"
+                type="button"
+                plain={false}
+                margin="small"
+              />
+
+              <Box margin={{horizontal:"medium"}}>
+                <Heading className="building-header" align="end">{unit.parent} | <b>{unit.title}</b></Heading>
+              </Box>
+            </Box>
 
           </Box>
 

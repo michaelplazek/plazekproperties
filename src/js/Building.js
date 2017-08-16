@@ -69,7 +69,7 @@ class Body extends Component{
               onClick={this.setToggle}
               margin="small"
             />
-            <Box margin={{horizontal:"medium", vertical:"small"}}>
+            <Box margin={{horizontal:"medium"}}>
               <Heading
                 className="building-header"
                 align="end"
@@ -197,19 +197,19 @@ class Body extends Component{
       <Box pad={{horizontal:"small"}} align="center">
         <List>
           <ListItem justify="center" size="medium">
-            <Label margin="none" size="medium">
+            <Paragraph margin="none" size="large">
               {this.getHeat(house.facts.heat)}
-            </Label>
+            </Paragraph>
           </ListItem>
           <ListItem justify="center" size="medium">
-            <Label margin="none" size="medium">
+            <Paragraph margin="none" size="large">
               {this.getAC(house.facts.ac)}
-            </Label>
+            </Paragraph>
           </ListItem>
           <ListItem justify="center" size="medium">
-            <Label margin="none" size="medium">
+            <Paragraph margin="none" size="large">
               {this.getWasher(house.facts.washer)}
-            </Label>
+            </Paragraph>
           </ListItem>
         </List>
       </Box>
@@ -222,19 +222,19 @@ class Body extends Component{
       <Box pad={{horizontal:"small"}} align="center">
         <List>
           <ListItem justify="center" size="medium">
-            <Label margin="none" size="medium">
+            <Paragraph margin="none" size="large">
               {this.getType(house.facts.type)}
-            </Label>
+            </Paragraph>
           </ListItem>
           <ListItem justify="center" size="medium">
-            <Label margin="none" size="medium">
+            <Paragraph margin="none" size="large">
               {this.getPets(house.facts.pets)}
-            </Label>
+            </Paragraph>
           </ListItem>
           <ListItem justify="center" size="medium">
-            <Label margin="none" size="medium">
+            <Paragraph margin="none" size="large">
               {this.getParking(house.facts.parking)}
-            </Label>
+            </Paragraph>
           </ListItem>
         </List>
       </Box>
