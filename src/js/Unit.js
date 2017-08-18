@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import LightBox from 'react-image-lightbox';
+
 import Box  from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
 import Image from 'grommet/components/Image';
@@ -28,10 +30,29 @@ let storage = window.sessionStorage;
 export class UnitBase extends Component{
   constructor(props){
     super(props);
+
+    this.state = {
+      toggle: false,
+      photoIndex: 0
+    };
+
+    this.setToggle = this.setToggle.bind(this);
+  }
+
+  componentWillMount(){
+    this.setState({toggle:false});
+  }
+
+  componentWillReceiveProps(){
+    this.setState({toggle:false});
   }
 
   getUnit(){
     let unit = JSON.parse(storage.getItem('unit'));
+
+    const { toggle, photoIndex } = this.state;
+    const images = unit.images;
+
     if(unit){
       let section = (
 
@@ -89,6 +110,23 @@ export class UnitBase extends Component{
               <EmailForm unit={unit}/>
             </ListItem>
           </List>
+
+          {toggle &&
+          <LightBox
+            mainSrc={images[photoIndex]}
+            nextSrc={images[(photoIndex + 1) % images.length]}
+            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+
+            onCloseRequest={() => this.setState({ toggle: false })}
+            onMovePrevRequest={() => this.setState({
+              photoIndex: (photoIndex + images.length - 1) % images.length
+            })}
+            onMoveNextRequest={() => this.setState({
+              photoIndex: (photoIndex + 1) % images.length
+            })}
+          />
+          }
+
         </Box>
       );
       return section;
@@ -124,7 +162,13 @@ export class UnitBase extends Component{
   }
 
   setToggle(){
+    if(this.state.toggle){
+      this.setState({toggle:false});
+    }
 
+    else{
+      this.setState({toggle:true});
+    }
   }
 
   render(){
