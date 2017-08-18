@@ -29,6 +29,6 @@ class PropertySearch extends Component{
 
 PropertySearch.PropTypes = {
   house_list: PropTypes.array
-}
+};
 
 export default PropertySearch;

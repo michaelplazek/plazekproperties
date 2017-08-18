@@ -23,8 +23,9 @@
     "lodash.has": "^4.5.2",
     "react": "*",
     "react-dom": "^15.5.4",
+    "react-fontawesome": "^1.6.1",
     "react-google-maps": "^7.2.0",
-    "react-router": "*"
+    "react-router": "^2.0.0"
   },
   "devDependencies": {
     "babel-cli": "6.8.0",

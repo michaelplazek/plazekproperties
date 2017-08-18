@@ -1,6 +1,5 @@
 {
   "houses": [{
-    "path":"/building",
     "number":"442",
     "street":"Orchard Ave",
     "city": "Bellevue, PA",
@@ -20,42 +19,48 @@
     ],
     "units":[{
       "title":"First Floor",
+      "bg":"http://i.imgur.com/oYPJ5VT.jpg",
+      "parent":"442 Orchard Ave",
       "images":[
         "http://www.reallynicehouses.com/wp-content/uploads/IMG_1397.jpg",
         "http://jeffmatherphotography.com/dispatches_wp/wp-content/uploads/2012/06/IMG_3960.jpg"
       ],
       "beds":"2",
       "baths":"1",
+      "parking":"off-street",
       "description":"First floor, 2-bedroom apartment in a desirable location in Bellevue. Huge living room with decorative fireplace. Updated bathroom with stained-glass window. Large master bedroom with plenty of closet space. Large, eat-in kitchen with range, refrigerator and dishwasher and plenty of cabinet space. Custom blinds throughout. Central A/C. Huge back porch and yard. Off-street parking in back. Equipped laundry and clean storage in basement. Washer and dryer provided for tenants’ use. Additional room in basement which can be used for office, etc.",
       "washer":"yes",
-      "dishwasher":"yes",
-      "path":"/"
+      "dishwasher":"yes"
     },
     {
       "title":"Second Floor",
+      "bg":"http://i.imgur.com/oYPJ5VT.jpg",
+      "parent":"442 Orchard Ave",
       "images":[
         "http://www.reallynicehouses.com/wp-content/uploads/IMG_1397.jpg",
         "http://jeffmatherphotography.com/dispatches_wp/wp-content/uploads/2012/06/IMG_3960.jpg"
       ],
       "beds":"2",
       "baths":"1",
+      "parking":"off-street",
       "description":"Triplex building. Beautiful, large 2nd floor, 2 bedroom apartment in a convenient location in Bellevue. Large living room with built-in bookcases and decorative fireplace. Large, equipped kitchen with center island and plenty of cabinet space. Dishwasher, stove and refrigerator included. Beautiful master bedroom with decorative fireplace and built-in bookcase and stained-glass window. Equipped laundry in basement with plenty of storage space too. Washer and dryer are provided and are NOT coin-operated. Central A/C. Large back balcony and yard. Old world charm abounds in this apartment!",
       "washer":"yes",
-      "dishwasher":"yes",
-      "path":"/"
+      "dishwasher":"yes"
     },
     {
       "title":"Third Floor",
+      "bg":"http://i.imgur.com/oYPJ5VT.jpg",
+      "parent":"442 Orchard Ave",
       "images":[
         "http://www.reallynicehouses.com/wp-content/uploads/IMG_1397.jpg",
         "http://jeffmatherphotography.com/dispatches_wp/wp-content/uploads/2012/06/IMG_3960.jpg"
       ],
       "beds":"2",
       "baths":"1",
+      "parking":"off-street",
       "description":"Triplex building. Spacious, two bedroom, 3rd floor apartment. Large entry. Living room. Bathroom (shower only). Built-ins. Lots of storage space. Kitchen with newer appliances. Separate utilities (all electric apartment). Large front balcony. Equipped laundry room IN APARTMENT. Central air conditioning. Yard. Private back deck. Off-street parking in back.",
       "washer":"yes",
-      "dishwasher":"yes",
-      "path":"/"
+      "dishwasher":"yes"
     }],
     "price":"3",
     "feel":"Comfortable triplex located on a quiet street in Bellevue. Large backyard. Front/back porches. Both on and off street parking. Smoke free. Large basement with washer & dryer.",
@@ -69,7 +74,6 @@
     }
   },
     {
-      "path":"/",
       "number":"181",
       "street":"Grant Ave",
       "city": "Bellevue, PA",

@@ -50,7 +50,7 @@ class Body extends Component{
     if(house){
       let section = (
 
-        <Box basis="full" justify="center" direction="column">
+        <Box basis="full" justify="center" direction="column"  >
 
           <Box
             full="horizontal"
@@ -69,7 +69,7 @@ class Body extends Component{
               onClick={this.setToggle}
               margin="small"
             />
-            <Box margin={{horizontal:"medium", vertical:"small"}}>
+            <Box margin={{horizontal:"medium"}}>
               <Heading
                 className="building-header"
                 align="end"
@@ -95,7 +95,8 @@ class Body extends Component{
           {this.getFeel(house)}
           {this.getUnits(house)}
 
-        </Box>);
+        </Box>
+          );
       return section;
     }
     return null;
@@ -103,10 +104,10 @@ class Body extends Component{
 
   setToggle(){
     if(this.state.toggle){
-      this.setState({toggle:false})
+      this.setState({toggle:false});
     }
     else{
-      this.setState({toggle:true})
+      this.setState({toggle:true});
     }
   }
 
@@ -125,7 +126,9 @@ class Body extends Component{
                 size={tile}
                 label={this.getRooms(unit)}
                 contentPad="medium"
-                link={<Anchor path={unit.path} icon={<LayerIcon />} label="View Unit"/>}
+                link={<Anchor path='/unit' icon={<LayerIcon />} label="View Unit"
+                  onClick={() => {storage.setItem('unit',JSON.stringify(unit))}}
+                />}
           />
         </Tile>
       ));
@@ -195,19 +198,19 @@ class Body extends Component{
       <Box pad={{horizontal:"small"}} align="center">
         <List>
           <ListItem justify="center" size="medium">
-            <Label margin="none" size="medium">
+            <Paragraph margin="none" size="large">
               {this.getHeat(house.facts.heat)}
-            </Label>
+            </Paragraph>
           </ListItem>
           <ListItem justify="center" size="medium">
-            <Label margin="none" size="medium">
+            <Paragraph margin="none" size="large">
               {this.getAC(house.facts.ac)}
-            </Label>
+            </Paragraph>
           </ListItem>
           <ListItem justify="center" size="medium">
-            <Label margin="none" size="medium">
+            <Paragraph margin="none" size="large">
               {this.getWasher(house.facts.washer)}
-            </Label>
+            </Paragraph>
           </ListItem>
         </List>
       </Box>
@@ -220,19 +223,19 @@ class Body extends Component{
       <Box pad={{horizontal:"small"}} align="center">
         <List>
           <ListItem justify="center" size="medium">
-            <Label margin="none" size="medium">
+            <Paragraph margin="none" size="large">
               {this.getType(house.facts.type)}
-            </Label>
+            </Paragraph>
           </ListItem>
           <ListItem justify="center" size="medium">
-            <Label margin="none" size="medium">
+            <Paragraph margin="none" size="large">
               {this.getPets(house.facts.pets)}
-            </Label>
+            </Paragraph>
           </ListItem>
           <ListItem justify="center" size="medium">
-            <Label margin="none" size="medium">
+            <Paragraph margin="none" size="large">
               {this.getParking(house.facts.parking)}
-            </Label>
+            </Paragraph>
           </ListItem>
         </List>
       </Box>
