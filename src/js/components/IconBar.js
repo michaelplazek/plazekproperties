@@ -19,7 +19,7 @@ class IconBar extends Component{
     let result = null;
 
     result = (
-      <Tile>
+      <Tile key="beds">
         <Box justify="center" align="center">
           <FontAwesome name="bed" size="2x"/>
           <Label margin="small">Beds: {unit.beds}</Label>
@@ -29,7 +29,7 @@ class IconBar extends Component{
     arr.push(result);
 
     result = (
-      <Tile>
+      <Tile key="baths">
         <Box justify="center" align="center">
           <FontAwesome name="bath" size="2x"/>
           <Label margin="small">Baths: {unit.baths}</Label>
@@ -39,7 +39,7 @@ class IconBar extends Component{
     arr.push(result);
 
     result = (
-      <Tile>
+      <Tile key="parking">
         <Box justify="center" align="center">
           <FontAwesome name="car" size="2x"/>
           <Label margin="small">Parking: {unit.parking}</Label>
@@ -50,7 +50,7 @@ class IconBar extends Component{
 
     if(unit.dishwasher === 'yes'){
       result = (
-        <Tile>
+        <Tile key="dishwasher">
           <Box justify="center" align="center">
             <FontAwesome name="window-maximize" size="2x"/>
             <Label margin="small">Dishwasher</Label>
@@ -62,7 +62,7 @@ class IconBar extends Component{
 
     if(unit.washer === 'yes'){
       result = (
-        <Tile>
+        <Tile key="washer">
           <Box justify="center" align="center">
             <LaundryIcon size="medium" />
             <Label margin="small">Laundry</Label>

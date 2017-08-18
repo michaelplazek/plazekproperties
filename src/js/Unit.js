@@ -86,7 +86,7 @@ export class UnitBase extends Component{
               {this.getDescription(unit)}
             </ListItem>
             <ListItem margin="large">
-              <EmailForm />
+              <EmailForm unit={unit}/>
             </ListItem>
           </List>
         </Box>

@@ -12,25 +12,33 @@ class EmailForm extends Component{
     super(props);
   }
 
-  //TODO: add methods to validate form and send email
+  onSubmit(){
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let phone = document.getElementById('phone').value;
+    let message = document.getElementById('message').value;
+
+    //TODO: set up AWS-SES to send mail
+  }
 
   render(){
     return (
-      <Form>
+      <Form onSubmit={this.onSubmit}>
         <Heading>
           Contact Us
         </Heading>
         <FormField label="Name">
-          <TextInput />
+          <TextInput id="name" />
         </FormField>
         <FormField label="Email">
-          <TextInput />
+          <TextInput id="email" />
         </FormField>
         <FormField label="Phone">
-          <TextInput />
+          <TextInput id="phone" />
         </FormField>
         <FormField label="Message">
           <textarea
+            id="message"
             name="message"
             rows="10" cols="50" />
         </FormField>

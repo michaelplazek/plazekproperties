@@ -50,7 +50,7 @@ class Body extends Component{
     if(house){
       let section = (
 
-        <Box basis="full" justify="center" direction="column">
+        <Box basis="full" justify="center" direction="column"  >
 
           <Box
             full="horizontal"
@@ -95,7 +95,8 @@ class Body extends Component{
           {this.getFeel(house)}
           {this.getUnits(house)}
 
-        </Box>);
+        </Box>
+          );
       return section;
     }
     return null;
