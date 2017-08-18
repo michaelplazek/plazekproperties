@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import LightBox from 'react-image-lightbox';
+
 import Box  from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
 import Image from 'grommet/components/Image';
@@ -26,7 +28,8 @@ class Body extends Component{
     super(props);
 
     this.state = {
-      toggle: false
+      toggle: false,
+      photoIndex: 0
     };
 
     this.setToggle = this.setToggle.bind(this);
@@ -47,6 +50,10 @@ class Body extends Component{
 
   getHouse(){
     let house = JSON.parse(storage.getItem('house'));
+
+    const { toggle, photoIndex } = this.state;
+    const images = house.images;
+
     if(house){
       let section = (
 
@@ -95,8 +102,24 @@ class Body extends Component{
           {this.getFeel(house)}
           {this.getUnits(house)}
 
-        </Box>
-          );
+          {toggle &&
+          <LightBox
+            mainSrc={images[photoIndex]}
+            nextSrc={images[(photoIndex + 1) % images.length]}
+            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+
+            onCloseRequest={() => this.setState({ toggle: false })}
+            onMovePrevRequest={() => this.setState({
+              photoIndex: (photoIndex + images.length - 1) % images.length
+            })}
+            onMoveNextRequest={() => this.setState({
+              photoIndex: (photoIndex + 1) % images.length
+            })}
+          />
+          }
+
+        </Box>);
+
       return section;
     }
     return null;
