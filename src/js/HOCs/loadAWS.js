@@ -12,7 +12,6 @@ function loadAWS(WrappedComponent){
       super(props);
 
       this.state = {
-        loading:true,
         json: null
       };
 
@@ -21,10 +20,6 @@ function loadAWS(WrappedComponent){
 
     componentWillMount(){
       this.getJSON();
-    }
-
-    componentWillUpdate(nextProps, nextState){
-
     }
 
     getJSON(){
