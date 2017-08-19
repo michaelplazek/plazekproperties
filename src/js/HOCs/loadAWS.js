@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import Spinning from 'grommet/components/icons/Spinning';
+import Box from 'grommet/components/Box';
+
 const AWS = require('aws-sdk');
 
 function loadAWS(WrappedComponent){
@@ -42,18 +45,21 @@ function loadAWS(WrappedComponent){
       s3.getObject(params, function(err, data) {
         if (err) console.log(err, err.stack);
         else {
-          console.log(JSON.parse(data.Body));
           result = JSON.parse(data.Body);
           self.setState({json:result});
         }
-        console.log('out of function');
       });
     }
 
     render(){
-      let result = <p>Ah fuck</p>;
+      let result = null;
       if(this.state.json){
         result = <WrappedComponent json={this.state.json}/>;
+      }
+      else{
+        result = (
+          <Box full="vertical" basis="full" justify="center" align="center"><Spinning size="large" /></Box>
+        );
       }
       return result;
     }
