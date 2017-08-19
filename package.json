@@ -12,6 +12,7 @@
   },
   "author": "Michael Plazek",
   "dependencies": {
+    "aws-sdk": "^2.100.0",
     "eslint-import-resolver-webpack": "^0.8.3",
     "file-system": "^2.2.2",
     "fs": "^0.0.1-security",
