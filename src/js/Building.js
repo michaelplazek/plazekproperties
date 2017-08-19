@@ -142,7 +142,7 @@ class Body extends Component{
 
   getUnits(house){
     let result = null;
-    let tile = "small";
+    let tile = "medium";
     if(house.units.length > 1){
       if(house.units.length <= 2){
         tile = "medium";
