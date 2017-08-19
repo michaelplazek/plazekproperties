@@ -2,7 +2,7 @@
 
 Under construction.
 
-###To Run:
+To Run:
 1. Run yarn to download dependancies
 ```
 yarn
