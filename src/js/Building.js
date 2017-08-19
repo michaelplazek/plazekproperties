@@ -143,11 +143,11 @@ class Body extends Component{
     let tile = "medium";
     if(house.units.length > 1){
       if(house.units.length <= 2){
-        tile = "medium";
+        tile = "large";
       }
       result = house.units.map((unit, index) => (
         <Tile fill={true} key={index} flex={true}>
-          <Card thumbnail={<Image size="medium" src={unit.images[0]} />}
+          <Card thumbnail={<Image size={tile} src={unit.bg} />}
                 heading={this.getUnitHeading(unit)}
                 textSize="small"
                 size={tile}
@@ -185,7 +185,7 @@ class Body extends Component{
   }
 
   getRooms(unit){
-    return(unit.beds + "bedrooms");
+    return(unit.beds + " bedrooms");
   }
 
   getUnitHeading(unit){
@@ -211,9 +211,9 @@ class Body extends Component{
   render(){
     return(
       <Box basis="full" justify="center">
-        <Animate enter={{"animation": "fade", "duration": 500, "delay": 250}}>
+        {/*<Animate enter={{"animation": "fade", "duration": 500, "delay": 250}}>*/}
           {this.getHouse()}
-        </Animate>
+        {/*</Animate>*/}
       </Box>
     );
   }

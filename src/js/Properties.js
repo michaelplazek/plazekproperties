@@ -9,9 +9,9 @@ import PropertySearch from './PropertySearch';
 import GoogleMapsWrapper from './components/GoogleMapsWrapper';
 import SearchBar from './components/SearchBar';
 
-const json = require('./../../units.json');
+import loadAWS from './HOCs/loadAWS';
 
-class Properties extends Component{
+export class PropertiesBase extends Component{
   constructor(props){
     super(props);
 
@@ -20,7 +20,7 @@ class Properties extends Component{
       house: {},
       house_list: [],
       height: window.innerHeight,
-      markers: this.setMarkers(json)
+      markers: this.setMarkers(this.props.json)
     };
 
     this.handleSearch = this.handleSearch.bind(this);
@@ -28,8 +28,8 @@ class Properties extends Component{
   }
 
   componentWillMount(){
-    this.setState({house_list:json.houses});
-    this.setState({markers:this.setMarkers(json)});
+    this.setState({house_list:this.props.json.houses});
+    this.setState({markers:this.setMarkers(this.props.json)});
   }
 
   // get size of window for map dimensions
@@ -55,7 +55,8 @@ class Properties extends Component{
 
   queryJSON(event){
     let result = [];
-    json.houses.forEach(house => {
+
+    this.props.json.houses.forEach(house => {
       if(event && house.number.includes(event) || house.street.toLowerCase().includes(event) || house.city.toLowerCase().includes(event) || house.zip.includes(event)){
         if(this.state.house_list && this.state.house_list.length > 0){
           result.push(house);
@@ -122,4 +123,4 @@ class Properties extends Component{
   }
 }
 
-export default Properties;
+export default loadAWS(PropertiesBase);
