@@ -7,7 +7,7 @@ Under construction.
 ```
 yarn
 ```
-1. Start program
+2. Start program
 ```
 npm start
 ```
