@@ -20,6 +20,7 @@ import Tile from 'grommet/components/Tile';
 import Card from 'grommet/components/Card';
 import Anchor from 'grommet/components/Anchor';
 import LayerIcon from 'grommet/components/icons/base/Layer';
+import BuildingIconBar from "./components/BuildingIconBar";
 
 let storage = window.sessionStorage;
 
@@ -34,7 +35,6 @@ class Body extends Component{
 
     this.setToggle = this.setToggle.bind(this);
     this.getHouse = this.getHouse.bind(this);
-    this.getSlides = this.getSlides.bind(this);
     this.getFirstFactList = this.getFirstFactList.bind(this);
     this.getSecondFactList = this.getSecondFactList.bind(this);
     this.getFeel = this.getFeel.bind(this);
@@ -85,22 +85,28 @@ class Body extends Component{
             </Box>
           </Box>
 
-          <Box
-            margin="large"
-          >
-            <Columns
-              maxCount={2}
-              responsive={true}
-              justify="center"
-            >
-              {this.getFirstFactList(house)}
-              {this.getSecondFactList(house)}
-            </Columns>
-          </Box>
+          <Box full="horizontal">
 
-          {this.getSlides(house)}
-          {this.getFeel(house)}
-          {this.getUnits(house)}
+            <List>
+              <ListItem><BuildingIconBar house = {house}/></ListItem>
+
+
+          {/*<Box margin={{vertical:"large"}}>*/}
+            {/*<Columns*/}
+              {/*maxCount={2}*/}
+              {/*responsive={true}*/}
+              {/*justify="center" >*/}
+              {/*{this.getFirstFactList(house)}*/}
+              {/*{this.getSecondFactList(house)}*/}
+            {/*</Columns>*/}
+          {/*</Box>*/}
+
+            <ListItem margin={{horizontal:"medium"}}>{this.getFeel(house)}</ListItem>
+            <ListItem margin={{horizontal:"medium"}}>{this.getUnits(house)}</ListItem>
+
+          </List>
+
+          </Box>
 
           {toggle &&
           <LightBox
@@ -142,34 +148,41 @@ class Body extends Component{
         tile = "medium";
       }
       result = house.units.map((unit, index) => (
-        <Tile key={index} flex={true}>
+        <Tile fill={true} key={index} flex={true}>
           <Card thumbnail={<Image size="medium" src={unit.images[0]} />}
                 heading={this.getUnitHeading(unit)}
                 textSize="small"
                 size={tile}
                 label={this.getRooms(unit)}
                 contentPad="medium"
+                margin={{horizontal:"medium"}}
                 link={<Anchor path='/unit' icon={<LayerIcon />} label="View Unit"
-                  onClick={() => {storage.setItem('unit',JSON.stringify(unit))}}
+                  onClick={() => {
+                    storage.setItem('unit',JSON.stringify(unit));
+                  }}
                 />}
           />
         </Tile>
       ));
     }
     return(
-      <Tiles
-        full="horizontal"
-        basis="full"
-        align="center"
-        justify="center"
-        pad={{vertical:"large"}}
-        fill={true} flush={false}
-        size="medium"
-        colorIndex="light-2"
-        margin={{vertical:"large"}}
-      >
-        {result}
-      </Tiles>
+      <Box basis="full">
+        <Heading>The Units</Heading>
+      <Box align="center" justify="center" margin={{horizontal:"medium"}}>
+        <Tiles
+          full="horizontal"
+          basis="full"
+          align="center"
+          justify="center"
+          pad={{vertical:"small"}}
+          fill={true} flush={false}
+          size="large"
+          margin={{vertical:"small"}}
+        >
+          {result}
+        </Tiles>
+      </Box>
+      </Box>
     );
   }
 
@@ -187,33 +200,14 @@ class Body extends Component{
     let result = null;
     if(house.feel){
       result = (
-        <Box basis="full" justify="center" align="center" pad={{horizontal:"medium"}}>
+        <Box>
+          <Heading>The Space</Heading>
+        <Box basis="full" justify="center" align="center" pad="small">
           <Paragraph size="large">{house.feel}</Paragraph>
+        </Box>
         </Box>);
     }
     return result;
-  }
-
-  getSlides(house){
-    let result = house.images.map(image =>
-      <Image key={image} src={image} />
-    );
-    if(this.state.toggle){
-      return (
-        <Animate
-          visible={this.state.toggle}
-          enter = {{"animation": "fade", "duration": 1000, "delay": 250}}
-          leave = {{"animation": "fade", "duration": 1000, "delay": 250}}
-        >
-          <Box pad="small" margin={{vertical:"small", horizontal:"large"}} colorIndex="light-2">
-            <Carousel>{result}</Carousel>
-          </Box>;
-        </Animate>
-      );
-    }
-    else{
-      return null;
-    }
   }
 
   getSecondFactList(house){

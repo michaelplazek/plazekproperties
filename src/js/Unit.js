@@ -22,7 +22,7 @@ import Anchor from 'grommet/components/Anchor';
 import LayerIcon from 'grommet/components/icons/base/Layer';
 import LinkPreviousIcon from 'grommet/components/icons/base/LinkPrevious';
 
-import IconBar from './components/IconBar';
+import IconBar from './components/UnitIconBar';
 import EmailForm from './components/EmailForm';
 
 let storage = window.sessionStorage;
@@ -64,7 +64,8 @@ export class UnitBase extends Component{
             texture={unit.bg}
             align="start"
             justify="between"
-            direction="column" >
+            direction="column"
+            >
 
             <Box
               align="start"
