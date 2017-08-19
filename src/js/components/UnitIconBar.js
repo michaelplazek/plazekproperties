@@ -9,7 +9,7 @@ import LaundryIcon from 'grommet/components/icons/base/CoatCheck';
 
 import FontAwesome from 'react-fontawesome';
 
-class IconBar extends Component{
+class UnitIconBar extends Component{
   constructor(props){
     super(props);
   }
@@ -93,4 +93,4 @@ class IconBar extends Component{
   }
 }
 
-export default IconBar;
+export default UnitIconBar;
