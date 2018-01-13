@@ -141,13 +141,13 @@ class Body extends Component{
   getUnits(house){
     let result = null;
     let tile = "medium";
-    if(house.units.length > 1){
+    if(house.units.length > 0){
       if(house.units.length <= 2){
         tile = "large";
       }
       result = house.units.map((unit, index) => (
         <Tile fill={true} key={index} flex={true}>
-          <Card thumbnail={<Image size={tile} src={unit.bg} />}
+          <Card thumbnail={<Image size={tile} src={unit.thumb} />}
                 heading={this.getUnitHeading(unit)}
                 textSize="small"
                 size={tile}

@@ -24,11 +24,11 @@ class PropertyList extends Component{
           margin="small"
           contentPad="small"
           description={this.getDescription(house)}
-          thumbnail={<Image size="large" src={house.bg} />}
+          thumbnail={<Image size="large" src={house.thumb} />}
           label={this.getAddress(house)}
           size="medium"
           link={<Anchor path='/building' icon={<LayerIcon />} label="View Building"
-            onClick={() => {storage.setItem('house',JSON.stringify(house))}}
+            onClick={() => {storage.setItem('house',JSON.stringify(house));}}
           />}
         />
       </ListItem>

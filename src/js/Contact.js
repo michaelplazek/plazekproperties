@@ -40,7 +40,7 @@ class Contact extends Component{
             </List>
           </Box>
       </Box>
-    )
+    );
   }
 }
 

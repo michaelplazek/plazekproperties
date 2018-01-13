@@ -26,7 +26,7 @@ function loadAWS(WrappedComponent){
       AWS.config.update({
         accessKeyId: "",
         secretAccessKey: "",
-        "region": "us-east-2"
+        region: "us-east-2"
       });
       const s3 = new AWS.S3();
       let self = this;
@@ -34,7 +34,7 @@ function loadAWS(WrappedComponent){
       let result = null;
       let params = {
         Bucket: "plazek-properties-info",
-        Key: "units.json"
+        Key: "units8.json"
       };
 
       s3.getObject(params, function(err, data) {

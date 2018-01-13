@@ -54,7 +54,7 @@ class About extends Component{
           </List>
         </Box>
       </Box>
-    )
+    );
   }
 }
 
