@@ -24,8 +24,8 @@ function loadAWS(WrappedComponent){
 
     getJSON(){
       AWS.config.update({
-        accessKeyId: "AKIAIHXCFJ3OCNCSD26A",
-        secretAccessKey: "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",
+        accessKeyId: "",
+        secretAccessKey: "",
         region: "us-east-2"
       });
       const s3 = new AWS.S3();
