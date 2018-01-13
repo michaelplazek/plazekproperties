@@ -8,7 +8,7 @@ import Anchor from 'grommet/components/Anchor';
 const App = (props) => (
 
   <GrommetApp centered={false}>
-    <Split priority="left" flex="right" fixed={true} separator={true}>
+    <Split priority="right" flex="right" fixed={true} separator={true}>
       <Sidebar colorIndex="neutral-1" size="small">
         <Menu size="large" justify="center" align="center" basis="full" pad={{vertical:"large"}}>
           <Anchor path="/" label="Home"/>
