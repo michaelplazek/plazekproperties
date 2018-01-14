@@ -14,7 +14,7 @@ const Home = () => (
           </Headline>
           <Box justify="center" align="center">
             <Animate enter={{"animation": "fade", "duration": 1000, "delay": 1000}}>
-              <Label margin="none">Find your castle.</Label>
+              <Label margin="none">Search for a new home.</Label>
             </Animate>
           </Box>
         </Box>
