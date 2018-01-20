@@ -24,8 +24,8 @@ function loadAWS(WrappedComponent){
 
     getJSON(){
       AWS.config.update({
-        accessKeyId: "AKIAJFMCSUMBBYH7MWXQ",
-        secretAccessKey: "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",
+        accessKeyId: "",
+        secretAccessKey: "",
         region: "us-east-2"
       });
       const s3 = new AWS.S3();
@@ -34,7 +34,7 @@ function loadAWS(WrappedComponent){
       let result = null;
       let params = {
         Bucket: "plazek-properties-info",
-        Key: "properties.json"
+        Key: "units.json"
       };
 
       s3.getObject(params, function(err, data) {
