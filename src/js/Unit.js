@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 import LightBox from 'react-image-lightbox';
 
@@ -42,6 +43,10 @@ export class UnitBase extends Component{
   componentWillMount(){
     this.setState({toggle:false});
   }
+
+  // componentDidMount() {
+  //   ReactDOM.findDOMNode(this).scrollTop = 0
+  // }
 
   componentWillReceiveProps(){
     this.setState({toggle:false});

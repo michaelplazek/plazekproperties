@@ -95,6 +95,15 @@ class BuildingIconBar extends Component{
       );
     }
 
+    else {
+      result = (
+        <Box align="center">
+          <Heading tag="h2" margin="none">5</Heading>
+          <Label margin="small">Multiple</Label>
+        </Box>
+      );
+    }
+
     return result;
   }
 
@@ -133,6 +142,15 @@ class BuildingIconBar extends Component{
         <Box align="center">
           <FontAwesome name="snowflake-o" size="2x"/>
           <Label margin="small">Central A/C</Label>
+        </Box>
+      );
+    }
+
+    else if(house.facts.ac === 'window'){
+      result = (
+        <Box align="center">
+          <FontAwesome name="snowflake-o" size="2x"/>
+          <Label margin="small">Window Unit A/C</Label>
         </Box>
       );
     }
