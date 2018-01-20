@@ -104,7 +104,7 @@ export class PropertiesBase extends Component{
           />
         </Animate>
         <Box>
-          <Header basis="full" full="horizontal" justify="end" pad="small">
+          <Header fixed={true} basis="full" full="horizontal" justify="end" pad="small">
             <Box justify="end" pad="small" basis="medium" align="end">
               <SearchBar
                 handleEvent={this.handleSearch}
