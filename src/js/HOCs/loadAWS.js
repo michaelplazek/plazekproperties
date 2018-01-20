@@ -34,7 +34,7 @@ function loadAWS(WrappedComponent){
       let result = null;
       let params = {
         Bucket: "plazek-properties-info",
-        Key: "properties.json"
+        Key: "units.json"
       };
 
       s3.getObject(params, function(err, data) {
