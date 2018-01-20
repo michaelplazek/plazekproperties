@@ -21,6 +21,7 @@ import Card from 'grommet/components/Card';
 import Anchor from 'grommet/components/Anchor';
 import LayerIcon from 'grommet/components/icons/base/Layer';
 import BuildingIconBar from "./components/BuildingIconBar";
+import LinkPreviousIcon from 'grommet/components/icons/base/LinkPrevious';
 
 let storage = window.sessionStorage;
 
@@ -61,10 +62,25 @@ class Body extends Component{
             full="horizontal"
             size={{height:'large'}}
             texture={house.bg}
-            align="end"
+            align="start"
             justify="between"
-            direction="row"
+            direction="column"
           >
+            <Box
+              align="start"
+              pad="small">
+              <Button
+                label="Back"
+                icon={<LinkPreviousIcon />}
+                primary={true}
+                path="/properties" />
+            </Box>
+
+            <Box
+              justify="between"
+              full="horizontal"
+              align="end"
+              direction="row">
             <Button
               primary={true}
               box={true}
@@ -80,6 +96,7 @@ class Body extends Component{
                 align="end"
               >
               {house.number} {house.street}</Heading>
+            </Box>
             </Box>
           </Box>
 

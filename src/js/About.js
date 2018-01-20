@@ -41,7 +41,7 @@ class About extends Component{
             </ListItem>
             <ListItem>
               <Box pad="medium">
-                <Heading tag="h2">Our Goals</Heading>
+                <Heading tag="h2">What are our goals?</Heading>
                 <Paragraph margin="none" >We encourage tenant longevity through a business model
                   based on mutal respect and consideration between the tenant and landlord. We try
                   our hardest to cater to all of our tenants' needs and expect our tenants to
