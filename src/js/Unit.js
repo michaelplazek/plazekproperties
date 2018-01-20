@@ -44,9 +44,9 @@ export class UnitBase extends Component{
     this.setState({toggle:false});
   }
 
-  // componentDidMount() {
-  //   ReactDOM.findDOMNode(this).scrollTop = 0
-  // }
+  componentDidMount() {
+    ReactDOM.findDOMNode(this).scrollIntoView();
+}
 
   componentWillReceiveProps(){
     this.setState({toggle:false});
