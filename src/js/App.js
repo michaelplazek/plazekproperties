@@ -35,6 +35,11 @@ class App extends Component{
 
   render(){
 
+    const { children } = this.props;
+
+    var childrenWithProps = React.Children.map(this.props.children, child =>
+      React.cloneElement(child, { history: this.props.history }));
+
     if(this.state.size === 'large'){
       return(
         <GrommetApp centered={false}>
@@ -48,7 +53,7 @@ class App extends Component{
               </Menu>
             </Sidebar>
 
-            {this.props.children}
+            {childrenWithProps}
 
           </Split>
         </GrommetApp>

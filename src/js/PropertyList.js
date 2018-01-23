@@ -43,7 +43,6 @@ class PropertyList extends Component{
           <ListItem pad="none" margin="none"><Paragraph margin="none">Price: {this.getStars(house.price)}</Paragraph></ListItem>
           <ListItem pad="none" margin="none"><Paragraph margin="none">Type: {house.facts.type}</Paragraph></ListItem>
           <ListItem pad="none" margin="none"><Paragraph margin="none">Parking: {house.facts.parking}</Paragraph></ListItem>
-
         </List>
       </Box>
     );

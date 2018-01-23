@@ -703,7 +703,7 @@
     "price":"2",
     "feel": "Large 5 unit building located on a quiet street in Bellevue. Large yard. On and off street parking. Large driveway. Smoke free. Basement with washer/dryer.",
     "facts":{
-      "type":"duplex",
+      "type":"multiple",
       "pets":"yes",
       "parking":"off-street",
       "heat":"central",

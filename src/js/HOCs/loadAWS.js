@@ -24,8 +24,8 @@ function loadAWS(WrappedComponent){
 
     getJSON(){
       AWS.config.update({
-        accessKeyId: "",
-        secretAccessKey: "",
+        accessKeyId: "AKIAIU7TFLAPY3DE7GGA",
+        secretAccessKey: "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",
         region: "us-east-2"
       });
       const s3 = new AWS.S3();
@@ -47,9 +47,12 @@ function loadAWS(WrappedComponent){
     }
 
     render(){
+
+      const { history } = this.props;
+
       let result = null;
       if(this.state.json){
-        result = <WrappedComponent json={this.state.json}/>;
+        result = <WrappedComponent history={history} json={this.state.json}/>;
       }
       else{
         result = (

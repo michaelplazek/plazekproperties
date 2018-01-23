@@ -101,6 +101,8 @@ export class PropertiesBase extends Component{
           <GoogleMapsWrapper
             height={this.state.height}
             markers={this.state.markers}
+            history={this.props.history}
+            house_list={this.state.house_list}
           />
         </Animate>
         <Box>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 import LightBox from 'react-image-lightbox';
 
@@ -37,6 +38,10 @@ class Body extends Component{
     this.setToggle = this.setToggle.bind(this);
     this.getHouse = this.getHouse.bind(this);
     this.getFeel = this.getFeel.bind(this);
+  }
+
+  componentDidMount() {
+    ReactDOM.findDOMNode(this).scrollIntoView();
   }
 
   componentWillMount(){
