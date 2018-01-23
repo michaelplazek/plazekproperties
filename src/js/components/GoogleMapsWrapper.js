@@ -16,10 +16,8 @@ const GoogleMaps = withGoogleMap(props =>
           key={index}
           {...marker}
           onClick = {setProperty.bind(this,marker)}
-          //label={props.label}
           onMouseOver={setLabel.bind(this,marker, props)}
           onMouseOut={clearLabel.bind(this,marker, props)}
-          // onMouseOver={props.onMarkerHover.bind(this,marker.key)}
         />
       ))}
     </GoogleMap>
@@ -28,7 +26,7 @@ const GoogleMaps = withGoogleMap(props =>
 function setProperty(marker){
 
   let house = find(house_list, function(o){
-    return JSON.stringify(o.number + " " + o.street) === JSON.stringify(marker.key);
+    return JSON.stringify(o.marker) === JSON.stringify(marker);
   });
 
   window.sessionStorage.setItem('house',JSON.stringify(house));
@@ -36,8 +34,11 @@ function setProperty(marker){
 }
 
 function clearLabel(marker, props){
+
   marker.label = "";
   props.onMarkerHover(marker.key);
+  // setTimeout(function(){ marker.label = ""; }, 1000);
+  // setTimeout(function(){ props.onMarkerHover(marker.key); }, 250);
 }
 
 function setLabel(marker, props){
