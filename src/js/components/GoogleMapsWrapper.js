@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
-import { withRouter } from 'react-router-dom'
-
 const find = require('lodash.find');
 
 const googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.27&libraries=places,geometry&key=AIzaSyCmatde5HvRYF3_ZaGuPYEh3iHTaSSe-Us";
@@ -18,16 +16,14 @@ const GoogleMaps = withGoogleMap(props =>
           key={index}
           {...marker}
           onClick = {setProperty.bind(this,marker)}
-          // label={state}
-          // onMouseOver={(marker) => setLabel}
+          //label={props.label}
+          onMouseOver={setLabel.bind(this,marker, props)}
+          onMouseOut={clearLabel.bind(this,marker, props)}
+          // onMouseOver={props.onMarkerHover.bind(this,marker.key)}
         />
       ))}
     </GoogleMap>
 );
-
-// onMarkerClick: () => (marker) => {
-//   window.location = '/post/' + marker.slug;
-// }
 
 function setProperty(marker){
 
@@ -35,18 +31,33 @@ function setProperty(marker){
     return JSON.stringify(o.number + " " + o.street) === JSON.stringify(marker.key);
   });
 
-  // let house = house_list.map(house => {
-  //   if(JSON.stringify(house.number + " " + house.street) === JSON.stringify(marker.key)) return house;
-  // });
-
-  console.log(house + " clicked!");
   window.sessionStorage.setItem('house',JSON.stringify(house));
   history.push('/building')
+}
+
+function clearLabel(marker, props){
+  marker.label = "";
+  props.onMarkerHover(marker.key);
+}
+
+function setLabel(marker, props){
+
+  // hacky, but it works
+  marker.label = marker.key;
+  props.onMarkerHover(marker.key);
 }
 
 class GoogleMapsWrapper extends Component{
   constructor(props){
     super(props);
+
+    this.state = { text: "" };
+
+    this.onMarkerHover = this.onMarkerHover.bind(this);
+  }
+
+  onMarkerHover(label){
+    this.setState({ text: label});
   }
 
   render(){
@@ -62,6 +73,8 @@ class GoogleMapsWrapper extends Component{
           <div style={{ height: this.props.height, width: '100%'}} />
         }
         markers={this.props.markers}
+        label={this.state.text}
+        onMarkerHover={this.onMarkerHover}
     />
     );
   }
