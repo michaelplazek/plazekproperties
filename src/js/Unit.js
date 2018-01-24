@@ -74,7 +74,8 @@ export class UnitBase extends Component{
 
             <Box
               align="start"
-              pad="small">
+              pad="small"
+            >
               <Button
                 label="Back"
                 icon={<LinkPreviousIcon />}
@@ -88,9 +89,9 @@ export class UnitBase extends Component{
               align="end"
               direction="row">
               <Button
-
                 primary={true}
                 box={true}
+                align="start"
                 onClick={this.setToggle}
                 label="View Photos"
                 type="button"
@@ -98,7 +99,7 @@ export class UnitBase extends Component{
                 margin="small"
               />
 
-              <Box margin={{horizontal:"medium"}}>
+              <Box margin={{horizontal:"medium"}} align="end">
                 <Heading className="building-header" align="end">{unit.parent} | <b>{unit.title}</b></Heading>
               </Box>
             </Box>

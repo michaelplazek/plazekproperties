@@ -22,7 +22,7 @@ export class PropertiesBase extends Component{
       height: window.innerHeight,
       markers: this.setMarkers(this.props.json)
     };
-
+    this.handleSearch = this.handleSearch.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 

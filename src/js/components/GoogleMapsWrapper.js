@@ -9,7 +9,7 @@ let history;
 let house_list;
 const GoogleMaps = withGoogleMap(props =>
     <GoogleMap
-      defaultZoom={14}
+      defaultZoom={13}
       defaultCenter={{ lat: 40.5, lng: -80.05 }}>
       {props.markers.map((marker, index) => (
         <Marker
