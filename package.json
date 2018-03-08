@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "website for Plazek Properties",
   "scripts": {
-    "prestart": "babel-node tools/startMessage.js",
+    "prestart": "babel-node lib/tools/startMessage.js",
     "start": "npm-run-all --parallel open:src",
-    "open:src": "babel-node tools/srcServer.js"
+    "open:src": "babel-node lib/tools/srcServer.js",
+    "babel": "babel"
   },
   "author": "Michael Plazek",
   "dependencies": {

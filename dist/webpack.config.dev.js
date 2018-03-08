@@ -32,6 +32,7 @@ exports.default = {
     contentBase: _path2.default.resolve(__dirname, 'src')
     // stats: 'errors-only'
   },
+  plugins: [new _webpack2.default.EnvironmentPlugin(['AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY'])],
   module: {
     loaders: [{ test: /\.js$/, include: [_path2.default.join(__dirname, 'src')], loaders: ['babel'] }, { test: /\.json$/, loader: 'json-loader' }, { test: /(\.css)$/, loaders: ['style', 'css'] }, { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' }, { test: /\.(woff|woff2)$/, loader: 'url?prefix=font/&limit=5000' }, { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' }, { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' }]
   }
