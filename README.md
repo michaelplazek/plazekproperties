@@ -1,13 +1,15 @@
-## Plazek Properties Homepage
+# Plazek Properties
+This is the homepage of Plazek Properties, the Pittsburgh-based realty company. Click on the [link](http://www.plazekproperties.com/) to visit.
+#### Version 2.4.0
 
-Under construction.
 
+
+
+# For developers
 To Run:
-1. Run yarn to download dependancies
 ```
 yarn
 ```
-2. Start program
 ```
 npm start
 ```
