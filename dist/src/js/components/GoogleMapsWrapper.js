@@ -61,7 +61,7 @@ function setProperty(marker) {
   history.push('/building');
 }
 
-function clearLabel(marker, props) {
+function clearLabel(marker, props, index) {
 
   marker.label = "";
   props.onMarkerHover(marker.key);

@@ -285,13 +285,17 @@ var Body = function (_Component) {
             _Tile2.default,
             { fill: true, key: index, flex: true },
             _react2.default.createElement(_Card2.default, { thumbnail: _react2.default.createElement(_Image2.default, { size: tile, src: unit.thumb }),
+              onClick: function onClick() {
+                storage.setItem('unit', JSON.stringify(unit));
+                _this3.props.history.push('/unit');
+              },
               heading: _this3.getUnitHeading(unit),
               textSize: 'small',
               size: tile,
               label: _this3.getRooms(unit),
               contentPad: 'medium',
               margin: { horizontal: "medium" },
-              link: _react2.default.createElement(_Anchor2.default, { path: '/unit', icon: _react2.default.createElement(_Layer2.default, null), label: 'View Unit',
+              link: _react2.default.createElement(_Anchor2.default, { path: '/unit', animateIcon: false, icon: _react2.default.createElement(_Layer2.default, null), label: 'View Unit',
                 onClick: function onClick() {
                   storage.setItem('unit', JSON.stringify(unit));
                 }

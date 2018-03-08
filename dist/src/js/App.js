@@ -42,6 +42,10 @@ var _Responsive = require('grommet/utils/Responsive');
 
 var _Responsive2 = _interopRequireDefault(_Responsive);
 
+var _reactResponsive = require('react-responsive');
+
+var _reactResponsive2 = _interopRequireDefault(_reactResponsive);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -91,40 +95,46 @@ var App = function (_Component) {
         return _react2.default.cloneElement(child, { history: _this2.props.history });
       });
 
-      if (this.state.size === 'large') {
-        return _react2.default.createElement(
-          _App2.default,
-          { centered: false },
-          _react2.default.createElement(
-            _Split2.default,
-            { priority: 'right', flex: 'right', fixed: true, separator: true },
-            _react2.default.createElement(
-              _Sidebar2.default,
-              { colorIndex: 'neutral-1', size: 'small' },
+      return _react2.default.createElement(
+        _reactResponsive2.default,
+        { query: '(max-device-width: 1224px)' },
+        function (matches) {
+          if (!matches) {
+            return _react2.default.createElement(
+              _App2.default,
+              { centered: false },
               _react2.default.createElement(
-                _Menu2.default,
-                { size: 'large', justify: 'center', align: 'center', basis: 'full', pad: { vertical: "large" } },
-                _react2.default.createElement(_Anchor2.default, { path: '/', label: 'Home' }),
-                _react2.default.createElement(_Anchor2.default, { path: '/properties', label: 'Properties' }),
-                _react2.default.createElement(_Anchor2.default, { path: '/contact', label: 'Contact' }),
-                _react2.default.createElement(_Anchor2.default, { path: '/about', label: 'About Us' })
+                _Split2.default,
+                { priority: 'right', flex: 'right', fixed: true, separator: true },
+                _react2.default.createElement(
+                  _Sidebar2.default,
+                  { colorIndex: 'neutral-1', size: 'small' },
+                  _react2.default.createElement(
+                    _Menu2.default,
+                    { size: 'large', justify: 'center', align: 'center', basis: 'full', pad: { vertical: "large" } },
+                    _react2.default.createElement(_Anchor2.default, { path: '/', label: 'Home' }),
+                    _react2.default.createElement(_Anchor2.default, { path: '/properties', label: 'Properties' }),
+                    _react2.default.createElement(_Anchor2.default, { path: '/contact', label: 'Contact' }),
+                    _react2.default.createElement(_Anchor2.default, { path: '/about', label: 'About Us' })
+                  )
+                ),
+                childrenWithProps
               )
-            ),
-            childrenWithProps
-          )
-        );
-      } else {
-        return _react2.default.createElement(
-          _App2.default,
-          { centered: false },
-          _react2.default.createElement(
-            _Box2.default,
-            { full: true },
-            _react2.default.createElement(_MobileNavigationBar2.default, null),
-            this.props.children
-          )
-        );
-      }
+            );
+          } else {
+            return _react2.default.createElement(
+              _App2.default,
+              { centered: false },
+              _react2.default.createElement(
+                _Box2.default,
+                { full: true },
+                _react2.default.createElement(_MobileNavigationBar2.default, null),
+                _this2.props.children
+              )
+            );
+          }
+        }
+      );
     }
   }]);
 

@@ -39,6 +39,10 @@ var _SearchBar = require('./components/SearchBar');
 
 var _SearchBar2 = _interopRequireDefault(_SearchBar);
 
+var _reactResponsive = require('react-responsive');
+
+var _reactResponsive2 = _interopRequireDefault(_reactResponsive);
+
 var _loadAWS = require('./HOCs/loadAWS');
 
 var _loadAWS2 = _interopRequireDefault(_loadAWS);
@@ -145,48 +149,82 @@ var PropertiesBase = exports.PropertiesBase = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
 
       return _react2.default.createElement(
-        _Split2.default,
-        {
-          fixed: true,
-          separator: true
-        },
-        _react2.default.createElement(
-          _Animate2.default,
-          { enter: { "animation": "slide-right", "duration": 300, "delay": 0 },
-            keep: true },
-          _react2.default.createElement(_GoogleMapsWrapper2.default, {
-            height: this.state.height,
-            markers: this.state.markers,
-            history: this.props.history,
-            house_list: this.state.house_list
-          })
-        ),
-        _react2.default.createElement(
-          _Box2.default,
-          null,
-          _react2.default.createElement(
-            _Header2.default,
-            { fixed: true, basis: 'full', full: 'horizontal', justify: 'end', pad: 'small' },
-            _react2.default.createElement(
+        _reactResponsive2.default,
+        { query: '(max-device-width: 1224px)' },
+        function (matches) {
+          if (!matches) {
+            return _react2.default.createElement(
+              _Split2.default,
+              {
+                fixed: true,
+                separator: true
+              },
+              _react2.default.createElement(
+                _Animate2.default,
+                { enter: { "animation": "slide-right", "duration": 300, "delay": 0 },
+                  keep: true },
+                _react2.default.createElement(_GoogleMapsWrapper2.default, {
+                  height: _this3.state.height,
+                  markers: _this3.state.markers,
+                  history: _this3.props.history,
+                  house_list: _this3.state.house_list
+                })
+              ),
+              _react2.default.createElement(
+                _Box2.default,
+                null,
+                _react2.default.createElement(
+                  _Header2.default,
+                  { fixed: true, basis: 'full', full: 'horizontal', justify: 'end', pad: 'small' },
+                  _react2.default.createElement(
+                    _Box2.default,
+                    { justify: 'end', pad: 'small', basis: 'medium', align: 'end' },
+                    _react2.default.createElement(_SearchBar2.default, {
+                      handleEvent: _this3.handleSearch
+                    })
+                  )
+                ),
+                _react2.default.createElement(
+                  _Box2.default,
+                  { direction: 'row', basis: 'full' },
+                  _react2.default.createElement(_PropertySearch2.default, {
+                    history: _this3.props.history,
+                    input: _this3.state.input,
+                    house_list: _this3.state.house_list
+                  })
+                )
+              )
+            );
+          } else {
+            return _react2.default.createElement(
               _Box2.default,
-              { justify: 'end', pad: 'small', basis: 'medium', align: 'end' },
-              _react2.default.createElement(_SearchBar2.default, {
-                handleEvent: this.handleSearch
-              })
-            )
-          ),
-          _react2.default.createElement(
-            _Box2.default,
-            { direction: 'row', basis: 'full' },
-            _react2.default.createElement(_PropertySearch2.default, {
-              history: this.props.history,
-              input: this.state.input,
-              house_list: this.state.house_list
-            })
-          )
-        )
+              null,
+              _react2.default.createElement(
+                _Header2.default,
+                { fixed: true, basis: 'full', full: 'horizontal', justify: 'end', pad: 'small' },
+                _react2.default.createElement(
+                  _Box2.default,
+                  { justify: 'end', pad: 'small', basis: 'medium', align: 'end' },
+                  _react2.default.createElement(_SearchBar2.default, {
+                    handleEvent: _this3.handleSearch
+                  })
+                )
+              ),
+              _react2.default.createElement(
+                _Box2.default,
+                { direction: 'row', basis: 'full' },
+                _react2.default.createElement(_PropertySearch2.default, {
+                  history: _this3.props.history,
+                  input: _this3.state.input,
+                  house_list: _this3.state.house_list
+                })
+              )
+            );
+          }
+        }
       );
     }
   }]);
