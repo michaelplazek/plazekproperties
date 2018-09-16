@@ -217,7 +217,7 @@ var BuildingIconBar = function (_Component) {
           _react2.default.createElement(
             _Label2.default,
             { margin: 'small' },
-            'Central Heat'
+            'Separate Central Heat'
           )
         );
       }
@@ -236,7 +236,7 @@ var BuildingIconBar = function (_Component) {
           _react2.default.createElement(
             _Label2.default,
             { margin: 'small' },
-            'Central A/C'
+            'Separate Central A/C'
           )
         );
       } else if (house.facts.ac === 'window') {
@@ -248,6 +248,17 @@ var BuildingIconBar = function (_Component) {
             _Label2.default,
             { margin: 'small' },
             'Window Unit A/C'
+          )
+        );
+      } else if (house.facts.ac === 'wall') {
+        result = _react2.default.createElement(
+          _Box2.default,
+          { align: 'center' },
+          _react2.default.createElement(_reactFontawesome2.default, { name: 'snowflake-o', size: '2x' }),
+          _react2.default.createElement(
+            _Label2.default,
+            { margin: 'small' },
+            'Wall Unit A/C'
           )
         );
       }
@@ -278,6 +289,17 @@ var BuildingIconBar = function (_Component) {
             _Label2.default,
             { margin: 'small' },
             'On-street Parking'
+          )
+        );
+      } else {
+        result = _react2.default.createElement(
+          _Box2.default,
+          { align: 'center' },
+          _react2.default.createElement(_reactFontawesome2.default, { name: 'car', size: '2x' }),
+          _react2.default.createElement(
+            _Label2.default,
+            { margin: 'small' },
+            'Garage Parking'
           )
         );
       }
