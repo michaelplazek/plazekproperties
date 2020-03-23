@@ -6,7 +6,7 @@
     "prestart": "babel-node lib/tools/startMessage.js",
     "start": "npm-run-all --parallel open:src",
     "open:src": "babel-node lib/tools/srcServer.js",
-    "babel": "babel"
+    "babel": " babel ./lib -d ./dist"
   },
   "author": "Michael Plazek",
   "dependencies": {
